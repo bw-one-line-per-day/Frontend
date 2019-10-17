@@ -1,9 +1,8 @@
 import React from 'react';
 
 
-class WelcomePage extends React.Component {
+class WelcomeLogIn extends React.Component {
 	state = {
-		name: '',
 		email: '',
 		password: ''
 	}
@@ -24,15 +23,9 @@ class WelcomePage extends React.Component {
 		console.log(this.state);
 		return (
 			<>
-				<h1>Welcome!</h1>
+				<h1>Welcome back!</h1>
 				<form>
-					<input 
-						type='text' 
-						name='name'
-						placeholder='Name'
-						value={this.state.name}
-						onChange={this.handleChanges}
-					/>
+					
 					<input 
 						type='email' 
 						name='email'
@@ -47,11 +40,11 @@ class WelcomePage extends React.Component {
 						value={this.state.passwoed}
 						onChange={this.handleChanges}
 					/>
-					<button>Sign Up</button>
-					<p>Already have an account? Sign In"sign in is a link"</p>
+					<button>Sign In</button>
+					<p>Don't have an account? Sign UP</p>
 				</form>
 			</>
 		);
 	}
 }
-export default WelcomePage;
+export default WelcomeLogIn;

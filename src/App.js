@@ -1,13 +1,13 @@
 import React from 'react';
 
-import WelcomPage from './Components/WelcomePage.js';
+import WelcomeLogIn from './Components/WelcomeLogIn.js';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-    <WelcomPage />
+    <WelcomeLogIn />
        
     </div>
   );
