@@ -81,12 +81,14 @@ const SignUp = (props) => {
           <RegisterInput
             type='text'
             name='username'
+            placeholder='Username'
             value={credentials.username}
             onChange={handleChange}
           />
           <RegisterInput
             type='password'
             name='password'
+            placeholder='Password'
             value={credentials.password}
             onChange={handleChange}
           />
