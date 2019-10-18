@@ -66,6 +66,14 @@ class WelcomeLogIn extends React.Component {
 			
 
 	}
+	onSubmit = e => {
+		e.preventDefault();
+		this.setState({
+			email: '',
+			password: ''
+		});
+		return console.log('welcomeLogIn:onSubmit func',this.state);
+	}
 
 
 	render(){
@@ -98,7 +106,7 @@ class WelcomeLogIn extends React.Component {
 				
 				<H1Wrapper>Welcome back!</H1Wrapper>
 				
-				<form className='form'>
+				<form onSubmit={this.onSubmit} className='form'>
 					<input className='inputsWelcomePage' 
 						type='email' 
 						name='email'
@@ -114,7 +122,7 @@ class WelcomeLogIn extends React.Component {
 						onChange={this.handleChanges}
 					/>
 					
-					<Button >Sign In</Button>
+					<Button onClick={this.onSubmit} >Sign In</Button>
 					<Link className='paragraphLink' to='/sign-up'>
 						<Paragraph>Don't have an account? Sign Up</Paragraph>
 					</Link>
