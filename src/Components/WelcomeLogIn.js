@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import Card from './Card.js';
+
 
 // styled components
 const NavOuterDiv = styled.nav`
@@ -76,9 +76,6 @@ class WelcomeLogIn extends React.Component {
 					<NavOuterDiv>
 						<DivOneLineADay>
 							<Link className='oneADaylink' to='/card'>One Line a Day </Link>
-							<Route  path='/Card' render={props => { 
-								return <Card />
-							}}/>
 						</DivOneLineADay>
 					
 						<DivOtherLinks>
