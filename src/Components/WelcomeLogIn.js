@@ -1,54 +1,93 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
+
+import notebookIcon from '../images/noteBookImage.png';
+import girlMobilePhone from '../images/girl-mobile.png';
 
 
 
 // styled components
-const NavOuterDiv = styled.nav`
-	 display: flex;
-  	flex-direction: row;
-  	font-size: 1.5rem;
-`;
-const DivOneLineADay = styled.div`
-	margin-top: 25px;
-  	margin-left: 3%;
-
+const DivContainerWrapper = styled.div`
+	width: 1440px;
+	height: 1016px;
+    background-color: #fef3f4;
 `;
 
-const DivOtherLinks = styled.div`
-	margin-left: 45%;
-  	width: 40%;
+const Header = styled.header`
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+
+`;
+const NoteBookLogo = styled.img`
+	margin-top: 30px;
+	margin-left: 3%;
+	width: 83px;
+  	height: 115px;
+`;
+const OneLineADayH1 = styled.h1`
+
+ 	font-size: 5rem;
+ 	margin-left: 25%;
+	color: rgb(234, 126, 76);
+`;
+const DivWrapper = styled.div`
+	display: flex;
+	flex-direction: row;
+`;
+const ImageOfGirl = styled.img`
+  	  max-width: 90%;
+  	  height: auto;
+  	  margin-left: 6%;
+  	  margin-right: 5%;
+
+`;
+const H2WelcomeBack = styled.h2`
+	width: 79%;
+	margin-top: 165px;
+	margin-left: 30px;
+	margin-bottom: 90px;
+	color: rgb(194, 170, 184);
+	font-size: 2.7rem;
+	
 `;
 
-const UlLinks = styled.div`
-	 display: flex;
-	  flex-direction: row;
-	  justify-content: space-between;
-	  list-style: none;
-	  width: 80%;
-	  margin-top: 25px;
+const InputsWrapper = styled.input`
+	font-size: 1.5rem;
+	width: 400px;
+  	height: 60px;
+  	border-radius: 12px;
+  	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  	background-color: #ffffff;
+  	margin-bottom: 50px;
+
 `;
-const H1Wrapper = styled.h1`
-	  margin-top: 200px;
-  		font-size: 2rem;
+const DivButtonWrapper = styled.div`
+	border-bottom: 1px solid rgb(191, 187, 187);
+	width: 400px;
 `;
 
 const Button = styled.button`
-	font-size: 1.5rem;
-   	border-radius: 5px;
-    width: 75%;
-    color: rgb(218, 216, 250);
-    margin: 20px auto;
-    background-color: rgb(202, 200, 248);
+	width: 183px;
+	height: 73px;
+    border-radius: 12px;
+    background-image: linear-gradient(to top, #f5b580, #e87e49 17%);
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 100px;
+    margin-bottom: 30px;
 `;
 
 const Paragraph = styled.p`
-	font-size: 1.2rem;
-  	color: rgb(119, 136, 150);
-
+	margin-left: 60px;
+	margin-top: 40px;
+	text-decoration: none;
 `;
+
+
+
 
 class WelcomeLogIn extends React.Component {
 	state = {
@@ -79,57 +118,44 @@ class WelcomeLogIn extends React.Component {
 	render(){
 		console.log(this.state);
 		return (
-			<>
-				<Router>
-					<NavOuterDiv>
-						<DivOneLineADay>
-							<Link className='oneADaylink' to='/card'>One Line a Day </Link>
-						</DivOneLineADay>
-					
-						<DivOtherLinks>
-						<UlLinks>
-							<li>
-							<Link className='otherLinks' to='/about-us'>About Us</Link>
-							</li>
-							<li>
-							<Link className='otherLinks' to='/learn-more'>Learn more</Link>
-							</li>
-							<li>
-							<Link  className='otherLinks' to='/sign-up'>Sign Up</Link>
-							</li>
-						</UlLinks>
-
-						</DivOtherLinks>
-					</NavOuterDiv>
-			
-				
-				
-				<H1Wrapper>Welcome back!</H1Wrapper>
-				
-				<form onSubmit={this.onSubmit} className='form'>
-					<input className='inputsWelcomePage' 
-						type='email' 
-						name='email'
-						placeholder='Email'
-						value={this.state.email}
-						onChange={this.handleChanges}
+			<DivContainerWrapper>
+				<Header>
+					<NoteBookLogo src={notebookIcon} alt='notebook-icon' className='logo' />
+					<OneLineADayH1>ONE LINE A DAY</OneLineADayH1>
+				</Header>
+				<DivWrapper>
+					<ImageOfGirl src={girlMobilePhone}  
+						alt='image of girl and large mobile phone' 
+						className='girlAndPhone' 
 					/>
-					<input  className='inputsWelcomePage'
-						type='password' 
-						name='password'
-						placeholder='Password'
-						value={this.state.passwoed}
-						onChange={this.handleChanges}
-					/>
-					
-					<Button onClick={this.onSubmit} >Sign In</Button>
-					<Link className='paragraphLink' to='/sign-up'>
-						<Paragraph>Don't have an account? Sign Up</Paragraph>
-					</Link>
-				</form>
-				</Router>
-			
-			</>
+					<div>
+						<H2WelcomeBack>Welcome back!</H2WelcomeBack>
+						<form>
+							<InputsWrapper className='inputsWelcomePage' 
+								type='email' 
+								name='email'
+								placeholder='EMAIL'
+								value={this.state.email}
+								onChange={this.handleChanges}
+							/>
+							<InputsWrapper  className='inputsWelcomePage'
+								type='password' 
+								name='password'
+								placeholder='PASSWORD'
+								value={this.state.passwoed}
+								onChange={this.handleChanges}
+							/>
+							<DivButtonWrapper>
+								<Button>SIGN IN</Button>
+							</DivButtonWrapper>
+						</form>
+						<Router>
+							<Paragraph>DON'T HAVE AN ACCOUNT?<NavLink to='/signup'>SIGN UP</NavLink></Paragraph>
+						</Router>
+					</div>
+				</DivWrapper>
+				
+			</DivContainerWrapper>
 		);
 	}
 }
