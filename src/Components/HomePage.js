@@ -14,7 +14,7 @@ export default function HomePage() {
         My Entries 
       </button>
       <Route path="/NewEnteries" component={EntryForm}/> 
-      <Route path="/MyEnteries" component={MyEntries}/> 
+  
     </div>
 
   )
