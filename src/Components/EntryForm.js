@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
-import { withFormik, Form, Field, validateYupSchema} from 'formik'; 
+import { withFormik, Form, Field } from 'formik'; 
+          // validateYupSchema
 
 
-
-function EntryForm() {
+function EntryForm(props) {
   const [entryData, setEntryData] = useState([]); //?? [], {}, null?
 
-  useEffect (() => {
+  useEffect ((props) => {
     if (props.status) {
       setEntryData([...entryData, props.status]); 
     }
