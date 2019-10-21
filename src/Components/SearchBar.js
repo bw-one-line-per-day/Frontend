@@ -1,16 +1,15 @@
 import React from "react"; 
+import { Form, Field} from 'formik'; 
 
-import { ReactComponent as SearchIcon } from '../Images/search.svg'; 
+import  search  from '../Images/search.svg'; 
 function SearchBar () {
 
   return (
     <div>
-      <form>
-        <input type='search' name='searchbar' >  
-        <SearchIcon />
-        Search Entry By Date 
-        </input>
-      </form>
+      <Form>
+        <Field type='text' name='searchbar' placeholder='Search Entry By Date'/>
+        
+      </Form>
     </div>
   )
 }

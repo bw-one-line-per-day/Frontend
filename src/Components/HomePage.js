@@ -2,20 +2,26 @@ import React from "react";
 import { Link, Route } from 'react-router-dom'; 
 
 import EntryForm from './EntryForm.js'; 
+import EntryArchive from './EntryArchive.js'; 
 
 function HomePage() {
   return (
     <div>
-      <Link to ='/NewEntry'>
+      <Link exact to ='/NewEntry'>
         <button>
           Add An Entry
           </button>
         </Link>
-      <button>
-      My Entries 
-      </button>
-      <Route path='/NewEntry'>
+      <Link to ='/MyEntries'>
+        <button>
+        My Entries 
+        </button>
+        </Link> 
+      <Route exact path='/NewEntry'>
         <EntryForm/>
+      </Route>
+      <Route exact path='/MyEntries'>
+        <EntryArchive/>
       </Route>
     </div>
   )

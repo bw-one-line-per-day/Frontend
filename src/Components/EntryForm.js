@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
+// import { Route } from 'react-router-dom'; 
 import { withFormik, Form, Field } from 'formik'; 
           // validateYupSchema
 
@@ -7,7 +8,7 @@ import { withFormik, Form, Field } from 'formik';
 function EntryForm(props) {
   const [entryData, setEntryData] = useState([]); //?? [], {}, null?
 
-  useEffect ((props) => {
+  useEffect (() => {
     if (props.status) {
       setEntryData([...entryData, props.status]); 
     }
@@ -16,9 +17,8 @@ function EntryForm(props) {
   return(
     <div className='entry-form'>
       <Form>
-        {/* not sure about component='textarea' */}
-      <Field component='textarea' type='text' name='Title' placeholder='Title'/>
-      <Field type='text' name='textArea' placeholder='Write about your day...' />
+      <Field type='text' name='Title' placeholder='Title'/>
+      <Field component='textarea' type='text' name='textArea' placeholder='Write about your day...' />
       <button type='submit'> Save </button>
       </Form>
       {entryData.map(entry => (      
@@ -27,6 +27,9 @@ function EntryForm(props) {
           <li>Entry: {entry.textArea}</li>
         </ul>
       ))}
+      {/* <Route exact path='/NewEntry'>
+        <EntryForm/>
+      </Route> */}
       </div> 
   )
 }
