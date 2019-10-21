@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { axiosWithAuth } from './axiosWithAuth'
 import styled from 'styled-components'
 import SignUpImage from '../Assets/SignUp.png'
-import Button from '../Assets/SignUpButton'
-import InactiveButton from '../Assets/SignUpInactiveButton'
+import Button from '../Assets/SignUpButton.png'
+//import InactiveButton from '../Assets/SignUpInactiveButton'
 
 const SignUp = (props) => {
   const [credentials, setCredentials] = useState({
@@ -93,13 +93,10 @@ const SignUpButton = styled.button`
 display: flex;
 flex-direction: column;
 margin: 2em;
-width: 328px;
 justify-content: center;
 align-items: center;
-padding: 1em;
-border-radius: 5px;
-background: blue;
-color: white;
+border: none;
+background: none;
 `
 const BackToSignIn = styled.button`
 display: flex;
