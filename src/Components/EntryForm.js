@@ -46,7 +46,7 @@ const myMapPropstoValues = props => {
 const myhandleSubmit = (values, {setStatus}) => {
   console.log('Submitted Entry!');
   axios
-  .post(  )
+  .post('https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts')
   .then(response => {
     console.log(response); 
     setStatus(response.data); 

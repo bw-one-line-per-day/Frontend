@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, Route } from 'react-router-dom'; 
 
-import EntryForm from './EntryForm.js'; 
-import EntryArchive from './EntryArchive.js'; 
+// import EntryForm from './EntryForm.js'; 
+import EntryArchive from './EntryArchive.js';
+import NewEntryPage from './NewEntryPage.js';  
 
 function HomePage() {
   return (
@@ -18,7 +19,7 @@ function HomePage() {
         </button>
         </Link> 
       <Route exact path='/NewEntry'>
-        <EntryForm/>
+        <NewEntryPage/>
       </Route>
       <Route exact path='/MyEntries'>
         <EntryArchive/>
