@@ -10,11 +10,11 @@ import EntryForm from './Components/EntryForm.js';
 
 function App() {
   return (
+   
     <div className="App">
-      <Nav/>
-      <HomePage/>
-      <EntryForm/>
+      <SignUp/>
     </div>
+   
   );
 }
 
