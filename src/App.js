@@ -1,20 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
-import PrivateRoute from './Auth/PrivateRoute';
-import SignUp from './Auth/SignUp'
 import './App.css';
-import HomePage from './Components/HomePage.js'; 
-import Nav from './Components/nav.js'; 
-import EntryForm from './Components/EntryForm.js';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from './Auth/PrivateRoute';
+
+import SignUp from './Auth/SignUp'
+//import Login from '../Auth/'
+import HomePage from './Components/HomePage';
+import EntryForm from './Components/EntryForm'
+
+
 
 function App() {
   return (
-   
+    <Router>
     <div className="App">
-      <SignUp/>
-    </div>
-   
+      <Route exact path='/' component={SignUp} />
+      
+      <PrivateRoute path='/home' component={HomePage} />
+      <PrivateRoute path='/entry' component={EntryForm} />
+      </div>
+    </Router>
   );
 }
 

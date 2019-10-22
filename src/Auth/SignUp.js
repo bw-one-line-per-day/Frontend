@@ -24,7 +24,7 @@ const SignUp = (props) => {
       .post('/auth/register', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.token)
-        //props.history.push('/dashboard')
+        props.history.push('/home')
         console.log(res.data)
       })
       .catch(err => console.log(err))}
@@ -93,8 +93,6 @@ const SignUpButton = styled.button`
 display: flex;
 flex-direction: column;
 margin: 2em;
-justify-content: center;
-align-items: center;
 border: none;
 background: none;
 `
