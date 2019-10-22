@@ -1,23 +1,68 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'; 
+import axios from 'axios'; 
+// import { Route } from 'react-router-dom'; 
+import { withFormik, Form, Field } from 'formik'; 
+          // validateYupSchema
 
-function EntryForm() {
-    return (
-        <div className='EntryForm'>
-            <h1> One Line A Day </h1> 
-                <form>
-                    <label>
-                        <input type='text'/> 
-                    </label>
 
-                    <label>
-                        <input type='text'/> 
-                    </label>
+function EntryForm(props) {
+  const [entryData, setEntryData] = useState([]); //?? [], {}, null?
 
-                    <button>Save</button>
+  useEffect (() => {
+    if (props.status) {
+      setEntryData([...entryData, props.status]); 
+    }
+  }, [props.state]) 
 
-                </form>
-        </div>
-    );
+  return(
+    <div className='entry-form'>
+      <Form>
+      <Field type='text' name='Title' placeholder='Title'/>
+      <Field component='textarea' type='text' name='contents' placeholder='Write about your day...' />
+      <button type='submit'> Save </button>
+      </Form>
+      {entryData.map(entry => (      
+        <ul key={entry.id}>
+          <li>Title: {entry.Title}</li>
+          <li>Entry: {entry.textArea}</li>
+        </ul>
+      ))}
+      {/* <Route exact path='/NewEntry'>
+        <EntryForm/>
+      </Route> */}
+      </div> 
+  )
 }
 
-export default EntryForm; 
+const myMapPropstoValues = props => {
+  console.log(props); 
+  const returnObj = {
+    Title: props.Title || '',
+    Entry: props.Entry || ''
+    } ;
+    return returnObj; 
+}
+
+const myhandleSubmit = (values, {setStatus}) => {
+  console.log('Submitted Entry!');
+  axios
+  .post('https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts') //Where :id in URL is user id, Takes an object including: { title: "title", contents: "contents" }, Returns id of post
+  .then(response => {
+    console.log(response); 
+    setStatus(response.data); 
+  })
+  .catch(err => console.log(err)); 
+}
+
+const formikObj = {
+  mapPropsToValues: myMapPropstoValues,
+  handleSubmit: myhandleSubmit,
+  // validationSchema: yumSchema ?? 
+}; 
+
+
+const EnhancedEntryForm = withFormik(formikObj); 
+
+const FormikEntryForm = EnhancedEntryForm(EntryForm);
+
+export default FormikEntryForm; 

@@ -3,7 +3,11 @@ import {Route} from 'react-router-dom';
 import EntryForm from "./EntryForm";
 
 
-export default function HomePage() {
+// import EntryForm from './EntryForm.js'; 
+import EntryArchive from './EntryArchive.js';
+import NewEntryPage from './NewEntryPage.js';  
+
+function HomePage() {
   return (
     <div>
       <button>
@@ -16,8 +20,7 @@ export default function HomePage() {
       <Route path="/NewEnteries" component={EntryForm}/> 
   
     </div>
-
   )
 }
 
-// ask aj about deploying to netlify and linking things?
+
