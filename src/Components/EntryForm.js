@@ -18,7 +18,7 @@ function EntryForm(props) {
     <div className='entry-form'>
       <Form>
       <Field type='text' name='Title' placeholder='Title'/>
-      <Field component='textarea' type='text' name='textArea' placeholder='Write about your day...' />
+      <Field component='textarea' type='text' name='contents' placeholder='Write about your day...' />
       <button type='submit'> Save </button>
       </Form>
       {entryData.map(entry => (      
@@ -46,7 +46,7 @@ const myMapPropstoValues = props => {
 const myhandleSubmit = (values, {setStatus}) => {
   console.log('Submitted Entry!');
   axios
-  .post('https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts')
+  .post('https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts') //Where :id in URL is user id, Takes an object including: { title: "title", contents: "contents" }, Returns id of post
   .then(response => {
     console.log(response); 
     setStatus(response.data); 
