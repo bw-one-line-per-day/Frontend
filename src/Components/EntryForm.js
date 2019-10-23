@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
-// import { Route } from 'react-router-dom'; 
 import { withFormik, Form, Field } from 'formik'; 
           // validateYupSchema
 
@@ -27,9 +26,6 @@ function EntryForm(props) {
           <li>Entry: {entry.textArea}</li>
         </ul>
       ))}
-      {/* <Route exact path='/NewEntry'>
-        <EntryForm/>
-      </Route> */}
       </div> 
   )
 }

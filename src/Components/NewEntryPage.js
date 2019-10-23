@@ -12,4 +12,4 @@ function NewEntryPage() {
   )
 }
 
-export default NewEntryPage; //?? 
+export default NewEntryPage; 

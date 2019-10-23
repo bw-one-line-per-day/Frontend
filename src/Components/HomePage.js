@@ -10,7 +10,7 @@ function HomePage() {
       <Link to="/NewEntryPage"><button>
         Add an Entry
       </button></Link>
-      <Link to="EntryArchive"><button> 
+      <Link to="/EntryArchive"><button> 
         My Entries 
         </button></Link> 
       <Route exact path="/"> <HomePage /> </Route>
