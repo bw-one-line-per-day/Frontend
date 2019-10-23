@@ -7,7 +7,7 @@ import NewEntryPage from './NewEntryPage.js';
 function HomePage() {
   return (
     <div>
-      <Link to="/NewEntryPage"><button>
+      <Link to="/NewEntry"><button>
         Add an Entry
       </button></Link>
       <Link to="EntryArchive"><button> 
