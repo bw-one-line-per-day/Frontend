@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 export const StoreContext = React.createContext({});
 
-export ContextProvider = () => {
+export const ContextProvider = (props) => {
 
 	const [userInfo, setUserInfo] = useState({username: '', password: '' });
 

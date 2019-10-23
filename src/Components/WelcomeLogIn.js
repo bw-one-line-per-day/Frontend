@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+
+import {StoreContext} from '../contextAPI/Context.js';
 
 import styled from 'styled-components';
 
