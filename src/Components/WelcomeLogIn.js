@@ -8,6 +8,83 @@ import girlMobilePhone from '../images/girl-mobile.png';
 
 
 
+
+
+
+class WelcomeLogIn extends React.Component {
+	state = {
+		username: '',
+		password: ''
+	}
+
+
+	handleChanges = (e) => {
+		this.setState({
+			...this.state,
+			[e.target.name]: e.target.value
+			
+		});
+			
+
+	}
+	onSubmit = e => {
+		e.preventDefault();
+		this.setState({
+			email: '',
+			password: ''
+		});
+		return console.log('welcomeLogIn:onSubmit func',this.state);
+	}
+
+
+	render(){
+		console.log(this.state);
+		return (
+			<DivContainerWrapper>
+				<Header>
+					<NoteBookLogo src={notebookIcon} alt='notebook-icon' className='logo' />
+					<OneLineADayH1>ONE LINE A DAY</OneLineADayH1>
+				</Header>
+				<DivWrapper>
+					<ImageOfGirl src={girlMobilePhone}  
+						alt='image of girl and large mobile phone' 
+						className='girlAndPhone' 
+					/>
+					<div>
+						<H2WelcomeBack>Welcome back!</H2WelcomeBack>
+						<form>
+							<InputsWrapper className='inputsWelcomePage' 
+								type='username' 
+								name='username'
+								placeholder='USERNAME'
+								value={this.state.username}
+								onChange={this.handleChanges}
+							/>
+							<InputsWrapper  className='inputsWelcomePage'
+								type='password' 
+								name='password'
+								placeholder='PASSWORD'
+								value={this.state.passwoed}
+								onChange={this.handleChanges}
+							/>
+							<DivButtonWrapper>
+								<Button>SIGN IN</Button>
+							</DivButtonWrapper>
+						</form>
+						<Router>
+							<Paragraph>DON'T HAVE AN ACCOUNT?<NavLink to='/signup'>SIGN UP</NavLink></Paragraph>
+						</Router>
+					</div>
+				</DivWrapper>
+				
+			</DivContainerWrapper>
+		);
+	}
+}
+export default WelcomeLogIn
+
+
+
 // styled components
 const DivContainerWrapper = styled.div`
 	width: 1440px;
@@ -85,78 +162,3 @@ const Paragraph = styled.p`
 	margin-top: 40px;
 	text-decoration: none;
 `;
-
-
-
-
-class WelcomeLogIn extends React.Component {
-	state = {
-		email: '',
-		password: ''
-	}
-
-
-	handleChanges = (e) => {
-		this.setState({
-			...this.state,
-			[e.target.name]: e.target.value
-			
-		});
-			
-
-	}
-	onSubmit = e => {
-		e.preventDefault();
-		this.setState({
-			email: '',
-			password: ''
-		});
-		return console.log('welcomeLogIn:onSubmit func',this.state);
-	}
-
-
-	render(){
-		console.log(this.state);
-		return (
-			<DivContainerWrapper>
-				<Header>
-					<NoteBookLogo src={notebookIcon} alt='notebook-icon' className='logo' />
-					<OneLineADayH1>ONE LINE A DAY</OneLineADayH1>
-				</Header>
-				<DivWrapper>
-					<ImageOfGirl src={girlMobilePhone}  
-						alt='image of girl and large mobile phone' 
-						className='girlAndPhone' 
-					/>
-					<div>
-						<H2WelcomeBack>Welcome back!</H2WelcomeBack>
-						<form>
-							<InputsWrapper className='inputsWelcomePage' 
-								type='email' 
-								name='email'
-								placeholder='EMAIL'
-								value={this.state.email}
-								onChange={this.handleChanges}
-							/>
-							<InputsWrapper  className='inputsWelcomePage'
-								type='password' 
-								name='password'
-								placeholder='PASSWORD'
-								value={this.state.passwoed}
-								onChange={this.handleChanges}
-							/>
-							<DivButtonWrapper>
-								<Button>SIGN IN</Button>
-							</DivButtonWrapper>
-						</form>
-						<Router>
-							<Paragraph>DON'T HAVE AN ACCOUNT?<NavLink to='/signup'>SIGN UP</NavLink></Paragraph>
-						</Router>
-					</div>
-				</DivWrapper>
-				
-			</DivContainerWrapper>
-		);
-	}
-}
-export default WelcomeLogIn;
