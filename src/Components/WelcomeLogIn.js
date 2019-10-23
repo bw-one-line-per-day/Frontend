@@ -15,7 +15,7 @@ import girlMobilePhone from '../images/girl-mobile.png';
 
 export default function WelcomeLogIn(props) {
 	const {userInfo, setUserInfo} = useContext(StoreContext);
-	console.log(StoreContext);
+	console.log(userInfo);
 
 	const handleChanges = (e) => {
 		setUserInfo({
@@ -57,8 +57,8 @@ export default function WelcomeLogIn(props) {
 								type='username' 
 								name='username'
 								placeholder='USERNAME'
-								value={userInfo}
-								onChange={() => props.handleChanges}
+								value={userInfo.username}
+								onChange={handleChanges}
 
 								
 								
