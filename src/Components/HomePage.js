@@ -1,23 +1,23 @@
 import React from "react";
-import {Route} from 'react-router-dom';
-import EntryForm from "./EntryForm";
+import {Route, Link} from 'react-router-dom';
 
+import EntryArchive from './EntryArchive.js';
+import NewEntryPage from './NewEntryPage.js';  
 
-export default function HomePage() {
+function HomePage() {
   return (
     <div>
-      <button>
+      <Link to="/NewEntry"><button>
         Add an Entry
-      </button>
-
-      <button>
+      </button></Link>
+      <Link to="EntryArchive"><button> 
         My Entries 
-      </button>
-      <Route path="/NewEnteries" component={EntryForm}/> 
-      <Route path="/MyEnteries" component={MyEntries}/> 
+        </button></Link> 
+      <Route exact path="/"> <HomePage /> </Route>
+      <Route path="/NewEntry"> <NewEntryPage/>  </Route> 
+      <Route path="/MyEntries"> <EntryArchive/> </Route> 
     </div>
-
   )
 }
 
-// ask aj about deploying to netlify and linking things?
+export default HomePage; 
