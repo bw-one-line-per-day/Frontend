@@ -5,7 +5,7 @@ import PrivateRoute from './Auth/PrivateRoute';
 
 import SignUp from './Auth/SignUp'
 //import Login from '../Auth/'
-import HomePage from './Components/HomePage';
+//import HomePage from './Components/HomePage';
 import EntryForm from './Components/EntryForm'
 
 
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Route exact path='/' component={SignUp} />
       
-      <PrivateRoute path='/home' component={HomePage} />
+      <PrivateRoute path='/home' component={EntryForm} />
       <PrivateRoute path='/entry' component={EntryForm} />
       </div>
     </Router>
