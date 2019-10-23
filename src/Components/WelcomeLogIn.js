@@ -13,23 +13,21 @@ import girlMobilePhone from '../images/girl-mobile.png';
 
 
 
-class WelcomeLogIn extends React.Component {
-	state = {
-		username: '',
-		password: ''
-	}
+export default function WelcomeLogIn(props) {
+	const {userInfo, setUserInfo} = useContext(StoreContext);
+	console.log(StoreContext);
 
-
-	handleChanges = (e) => {
-		this.setState({
-			...this.state,
+	const handleChanges = (e) => {
+		setUserInfo({
+			...userInfo,
 			[e.target.name]: e.target.value
 			
 		});
+		console.log(userInfo);
 			
 
 	}
-	onSubmit = e => {
+	const onSubmit = e => {
 		e.preventDefault();
 		this.setState({
 			email: '',
@@ -39,8 +37,8 @@ class WelcomeLogIn extends React.Component {
 	}
 
 
-	render(){
-		console.log(this.state);
+	
+		
 		return (
 			<DivContainerWrapper>
 				<Header>
@@ -59,15 +57,18 @@ class WelcomeLogIn extends React.Component {
 								type='username' 
 								name='username'
 								placeholder='USERNAME'
-								value={this.state.username}
-								onChange={this.handleChanges}
+								value={userInfo}
+								onChange={() => props.handleChanges}
+
+								
+								
 							/>
 							<InputsWrapper  className='inputsWelcomePage'
 								type='password' 
 								name='password'
 								placeholder='PASSWORD'
-								value={this.state.passwoed}
-								onChange={this.handleChanges}
+								
+								
 							/>
 							<DivButtonWrapper>
 								<Button>SIGN IN</Button>
@@ -81,10 +82,8 @@ class WelcomeLogIn extends React.Component {
 				
 			</DivContainerWrapper>
 		);
-	}
+	
 }
-export default WelcomeLogIn
-
 
 
 // styled components
@@ -164,3 +163,8 @@ const Paragraph = styled.p`
 	margin-top: 40px;
 	text-decoration: none;
 `;
+
+
+
+
+
