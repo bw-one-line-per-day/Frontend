@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from './Auth/PrivateRoute';
 
 import SignUp from './Auth/SignUp'
-//import Login from '../Auth/'
 import HomePage from './Components/HomePage';
 import EntryForm from './Components/EntryForm'
 
@@ -19,10 +18,9 @@ function App() {
     <Router>
     <div className="App">
 
-      <WelcomeLogIn />
-
       <Route exact path='/' component={SignUp} />
-      
+      <Route exact path='/login' component={WelcomeLogIn} />
+
       <PrivateRoute path='/home' component={HomePage} />
       <PrivateRoute path='/NewEntry' component={EntryForm} />
       </div>

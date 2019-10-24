@@ -75,7 +75,7 @@ export default function WelcomeLogIn(props) {
 							</DivButtonWrapper>
 						</form>
 						<Router>
-							<Paragraph>DON'T HAVE AN ACCOUNT?<NavLink to='/signup'>SIGN UP</NavLink></Paragraph>
+							<Paragraph>DON'T HAVE AN ACCOUNT?<NavLink to='/'>SIGN UP</NavLink></Paragraph>
 						</Router>
 					</div>
 				</DivWrapper>
