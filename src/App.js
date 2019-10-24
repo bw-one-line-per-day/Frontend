@@ -1,4 +1,8 @@
 import React from 'react';
+
+
+import WelcomeLogIn from './Components/WelcomeLogIn.js';
+
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from './Auth/PrivateRoute';
@@ -14,12 +18,16 @@ function App() {
   return (
     <Router>
     <div className="App">
+
+      <WelcomeLogIn />
+
       <Route exact path='/' component={SignUp} />
       
       <PrivateRoute path='/home' component={HomePage} />
       <PrivateRoute path='/NewEntry' component={EntryForm} />
       </div>
     </Router>
+
   );
 }
 
