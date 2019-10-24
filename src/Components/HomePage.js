@@ -31,10 +31,10 @@ function HomePage() {
         </ButtonArea>
         </LeftDiv>
       
-      <Route path="/NewEntryPage"> <NewEntryPage/>  </Route> 
-      <Link to="NewEntry"/>
-      <Route path="/EntryArchive"> <EntryArchive/> </Route> 
-      <Link to="EntryArchive"/> 
+      <Route path="/NewEntry"> <NewEntryPage/>  </Route> 
+      <Link to="/NewEntryPage"/>
+      <Route path="/MyEntries"> <EntryArchive/> </Route> 
+      <Link to="/EntryArchive"/> 
       <GirlDiv>
       <img src={HomePageGirl} alt={'girl'}/>
       </GirlDiv>

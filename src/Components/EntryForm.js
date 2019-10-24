@@ -16,8 +16,8 @@ function EntryForm(props) {
   return(
     <div className='entry-form'>
       <Form>
-      <Field type='text' name='Title' placeholder='Title'/>
-      <Field component='textarea' type='text' name='contents' placeholder='Write about your day...' />
+      <Field type='text' name='Title' value={entryData.title} placeholder='Title'/>
+      <Field component='textarea' value={entryData.content} type='text' name='contents' placeholder='Write about your day...' />
       <button type='submit'> Save </button>
       </Form>
       {entryData.map(entry => (      
