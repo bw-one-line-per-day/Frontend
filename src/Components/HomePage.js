@@ -36,7 +36,7 @@ function HomePage() {
       <Route path="/MyEntries"> <EntryArchive/> </Route> 
       <Link to="/EntryArchive"/> 
       <GirlDiv>
-      <img src={HomePageGirl} alt={'girl'}/>
+      <Girl img src={HomePageGirl} alt={'girl'}/>
       </GirlDiv>
       <Footer />
     </StyledPage>
@@ -48,35 +48,47 @@ background: #FEE5E2;
 height: 100%;
 display: flex; 
 flex-direction: column; 
+height: 98%;
 `
 
 const Button = styled.button`
 display: flex;
 flex-direction: column;
-margin: 2em;
 border: none;
 background: none;
+height: 33%;
 `
 
 const GirlDiv = styled.div`
 display: flex;
 flex-direction: row;
 background: #FEE5E2;
-
+padding: .20rem;
 `
+const Girl = styled.img`
+height: 500px;
+display: flex;
+flex-direction: column;
+margin: 0 auto; 
+`
+
 const ButtonArea = styled.div`
 display: flex; 
 flex-direction: row; 
-padding: 4rem; 
+padding: .25rem; 
+width: 65%; 
 `
 
 const QuoteDiv = styled.div`
 margin: 0 auto; 
 display: flex; 
 flex-direction: column; 
+width: 65%; 
 `
 const LeftDiv = styled.div`
 display: flex; 
 flex-direction: column; 
+padding: 2rem;
+width: 65%; 
 `
 export default HomePage; 
