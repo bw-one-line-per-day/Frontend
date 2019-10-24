@@ -13,7 +13,6 @@ function App() {
     <Router>
       <div className="App">
         <Route exact path="/" component={SignUp} />
-
         <PrivateRoute path="/home" component={HomePage} />
         <PrivateRoute path="/NewEntry" component={EntryForm} />
       </div>

@@ -13,7 +13,7 @@ function HomePage() {
       <Link to="/EntryArchive"><button> 
         My Entries 
         </button></Link> 
-      <Route exact path="/"> <HomePage /> </Route>
+      {/* <Route path="/userHome"> <HomePage /> </Route> */}
       <Route path="/NewEntry"> <NewEntryPage/>  </Route> 
       <Route path="/MyEntries"> <EntryArchive/> </Route> 
     </div>
