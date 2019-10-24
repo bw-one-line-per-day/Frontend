@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { axiosWithAuth } from './axiosWithAuth'
-import {BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components'
 import SignUpImage from '../Assets/SignUp.png'
 import Button from '../Assets/SignUpButton.png'
 //import InactiveButton from '../Assets/SignUpInactiveButton'
 import LogoImg from '../Images/Logo.png'
+import WelcomeLogIn from '../Components/WelcomeLogIn.js';
 
 const SignUp = (props) => {
   const [credentials, setCredentials] = useState({
@@ -58,9 +59,11 @@ const SignUp = (props) => {
           />
           <SignUpButton onClick={signUp}><img src={Button}/></SignUpButton>
           </form>
-          <Router>
-          <BackToSignIn>Already have an account?<NavLink exact to='/login'>Sign In</NavLink></BackToSignIn>
-          </Router>
+          
+          <BackToSignIn>Already have an account?</BackToSignIn>
+        
+          <Link to='/login'>Sign In</Link>
+       
         </RegisterBox>
     </Page>
     </>
