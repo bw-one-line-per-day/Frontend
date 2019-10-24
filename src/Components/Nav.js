@@ -5,13 +5,15 @@ import Logo from '../Images/Logo.png';
 
 function Nav() {
   return (
+    <StyledNav>
     <div className='Nav-Container'>
       <img src={Logo} alt='note pad with pen' /> 
       <h1> One Line a Day </h1> 
       {/* <Link to='aboutus'> About Us </Link> */}
       <div>
-      <button onClick='signout'> Sign Out </button>
+      <button onClick={signOut}> Sign Out </button>
       </div>
+      </StyledNav>
     </div>
   )
 }

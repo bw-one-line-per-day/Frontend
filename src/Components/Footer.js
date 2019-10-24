@@ -8,21 +8,17 @@ import twitter from '../Images/twitter.png';
 
 function Footer() {
   return (
-    <styledFooter>
-    <img src={aboutusframed} alt='About Us' />
-    <img src={instagram} alt='Instagram Icon' />
-    <img src={facebookicon} alt='Facebook Icon' />
-    <img src={twitter} alt='Twitter Icon' />
-    </styledFooter>
+    <div>
+    <StyledImg img src={aboutusframed} alt='About Us' />
+    <StyledImg img src={instagram} alt='Instagram Icon' />
+    <StyledImg img src={facebookicon} alt='Facebook Icon' />
+    <StyledImg img src={twitter} alt='Twitter Icon' />
+    </div>
   )
 }
 
 
-const styledFooter = styled.div`
-justify-content: space-evenly;
-margin: 0 auto;
-align-items: center;
-display: flex;
-width: 40%;
-` 
+const StyledImg = styled.img`
+padding: 3rem; 
+`
 export default Footer; 

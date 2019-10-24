@@ -4,8 +4,8 @@ import styled from "styled-components";
 import Footer from './Footer.js'; 
 import Nav from './Nav.js'; 
 import EntryForm from './EntryForm.js'; 
-import { ReactComponent as TrashCan } from '../Images/trashcan.svg';
-import { ReactComponent as Edit } from '../Images/editwithpen.svg';import AddButton from '../Images/AddButton.png';  
+import  TrashCan  from '../Images/trashcan.svg';
+import  Edit  from '../Images/editwithpen.svg';import AddButton from '../Images/AddButton.png';  
 
 function EntryArchive() { 
   const [entry, setEntry] = useState([
@@ -42,8 +42,8 @@ function EntryArchive() {
       <Button> <img src={AddButton} alt={'Add New Entry'} /></Button>
       {/* <SearchBar/> */}
       {/* <EntryForm addEntryDataFN={addEntryData} /> */}
-      <TrashCan />
-      <Edit/> 
+      <DeleteIcon src={TrashCan} alt={'delete'}/>
+      <EditIcon src={Edit} alt={'Edit Entry'}/> 
       <Footer />
     </StyledPage>
   )
@@ -58,9 +58,17 @@ flex-direction: column;
 const Button = styled.button`
 display: flex;
 flex-direction: column;
-margin: 2em;
+margin: 2rem;
 border: none;
 background: none;
+height: 50px;
 ` 
+const DeleteIcon = styled.img`
+height: 50px;
+`
 
+const EditIcon = styled.img`
+height: 50px;
+
+`
 export default EntryArchive; 
