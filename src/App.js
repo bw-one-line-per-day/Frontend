@@ -1,21 +1,23 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-
-// import PrivateRoute from './Auth/PrivateRoute';
-// import SignUp from './Auth/SignUp'
 import './App.css';
-import HomePage from './Components/HomePage.js'; 
-import Nav from './Components/Nav.js'; 
-import NewEntryPage from './Components/NewEntryPage.js';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PrivateRoute from './Auth/PrivateRoute';
+
+import SignUp from './Auth/SignUp';
+//import Login from '../Auth/'
+import HomePage from './Components/HomePage';
+import EntryForm from './Components/EntryForm';
 
 function App() {
-  console.log('here'); 
   return (
-    <div className="App">
-      <Nav/>
-      <HomePage/>
-      <NewEntryPage/>
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path="/" component={SignUp} />
+
+        <PrivateRoute path="/home" component={HomePage} />
+        <PrivateRoute path="/NewEntry" component={EntryForm} />
+      </div>
+    </Router>
   );
 }
 
