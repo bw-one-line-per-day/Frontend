@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import SignUpImage from '../Assets/SignUp.png'
 import Button from '../Assets/SignUpButton.png'
 //import InactiveButton from '../Assets/SignUpInactiveButton'
+import LogoImg from '../Assets/Logo.png'
 
 const SignUp = (props) => {
   const [credentials, setCredentials] = useState({
@@ -31,6 +32,10 @@ const SignUp = (props) => {
 
   return (
     <>
+    <Header>
+      <Logo src={LogoImg} />
+      <Title>One Line Per Day</Title>
+    </Header>
     <Page>
     <img src={SignUpImage} />
         <RegisterBox>
@@ -58,6 +63,25 @@ const SignUp = (props) => {
     </>
   );
 };
+
+const Title = styled.header`
+display: flex;
+align-self: center;
+`
+
+const Logo = styled.img`
+display: flex;
+height: 110px;
+width: auto;
+align-self: flex-start;
+margin-left: 300px;
+padding-top: 40px;
+`
+const Header = styled.div`
+display: flex;
+flex-direction: row;
+background: #FEE5E2;
+`
 
 const Page = styled.div`
 display: flex;
