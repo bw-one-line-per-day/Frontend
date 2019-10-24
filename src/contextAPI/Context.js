@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-export const StoreContext = React.createContext({});
+export const StoreContext = React.createContext({ });
 
 export const ContextProvider = (props) => {
 

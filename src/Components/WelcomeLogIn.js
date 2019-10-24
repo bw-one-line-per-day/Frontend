@@ -5,8 +5,8 @@ import {StoreContext} from '../contextAPI/Context.js';
 
 import styled from 'styled-components';
 
-import notebookIcon from '../images/noteBookImage.png';
-import girlMobilePhone from '../images/girl-mobile.png';
+import notebookIcon from '../Images/noteBookImage.png';
+import girlMobilePhone from '../Images/girl-mobile.png';
 
 
 
@@ -46,10 +46,10 @@ export default function WelcomeLogIn(props) {
 					<OneLineADayH1>ONE LINE A DAY</OneLineADayH1>
 				</Header>
 				<DivWrapper>
-					<ImageOfGirl src={girlMobilePhone}  
+					 <ImageOfGirl src={girlMobilePhone}  
 						alt='image of girl and large mobile phone' 
 						className='girlAndPhone' 
-					/>
+					/> 
 					<div>
 						<H2WelcomeBack>Welcome back!</H2WelcomeBack>
 						<form>
