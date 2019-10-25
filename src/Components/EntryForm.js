@@ -16,16 +16,16 @@ import {StoreContext} from '../contextAPI/Context.js';
   return(
     <div className='entry-form'>
       <Form>
-      <Field type='text' name='Title' value={entryData.title} placeholder='Title'/>
-      <Field component='textarea' value={entryData.content} type='text' name='contents' placeholder='Write about your day...' />
+      <Field type='text' name='Title' value={entryTitle} placeholder='Title'/>
+      <Field component='textarea' value={entryContent} type='text' name='contents' placeholder='Write about your day...' />
       <button type='submit'> Save </button>
       </Form>
-      {entryData.map(entry => (      
+      {/* {entryD.map(entry => (      
         <ul key={entry.id}>
-          <li>Title: {entry.Title}</li>
-          <li>Entry: {entry.textArea}</li>
+          <li>Title: {entryTitle}</li>
+          <li>Entry: {entryContent}</li>
         </ul>
-      ))}
+      ))} */}
       </div> 
   )
 }
@@ -50,15 +50,13 @@ const myhandleSubmit = (values, {setStatus}) => {
   .catch(err => console.log(err)); 
 }
 
+    //   <Form>
+    //   <label>
+    //     <input type ='text' placeholder= 'Entry Content' onChange={evt => setEntryContent(evt.target.value)} />
+    //   </label>
 
-      <label>
-        <input type ='text' placeholder= 'Entry Content' onChange={evt => setEntryContent(evt.target.value)} />
-      </label>
-
-      <button> </button>
-    </Form>
-  )
-} 
+    //   <button> </button>
+    // </Form>
 
 export default EntryForm;
 
@@ -67,3 +65,7 @@ export default EntryForm;
 // then have a <button onSubmit={does something with userData}></button>
 //state lives in the parent component and any functions necessary to change state exist at the same level
 //if a child needs to change state then it will receive the tools it needs through PROPS at the parent level
+
+
+
+// what about onChange={handleChangle} within each imput of the form? 

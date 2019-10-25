@@ -1,13 +1,14 @@
-import React, { useState } from "react"; 
-import styled from "styled-components"; 
+import React, { useState, useEffect } from "react"; 
+import styled from "styled-components";
 // import SearchBar from './SearchBar.js'; 
 import Footer from './Footer.js'; 
 import Nav from './Nav.js'; 
 import EntryForm from './EntryForm.js'; 
 import  TrashCan  from '../Images/trashcan.svg';
 import  Edit  from '../Images/editwithpen.svg';import AddButton from '../Images/AddButton.png';  
+import { axiosWithAuth } from "../Auth/axiosWithAuth.js";
 
-function EntryArchive() { 
+function EntryArchive(props) { 
   const [entry, setEntry] = useState([
     {
       id: 1,
@@ -26,6 +27,10 @@ function EntryArchive() {
     }
   ]);
 
+  useEffect(function(){
+  axiosWithAuth.get('users/:id/posts')
+  }, []) 
+
   const addEntryData = post => {
       const NewPost = {
         id: Date.now(),
@@ -35,15 +40,26 @@ function EntryArchive() {
     setEntry([...entry, NewPost]); 
   }
 
+
   return(
     <StyledPage>
+      
       <Nav />
       <Button> <img src={AddButton} alt={'Add New Entry'} /></Button>
-      {/* console.log("in entryarchive funciton") working */}
+
+      {entry.map(({id, title, content}) => { 
+        return (
+      <div>
+        <p>{title}</p>
+        <p>{content}</p>
+
       {/* <SearchBar/> */}
       {/* <EntryForm addEntryDataFN={addEntryData} /> */}
       <DeleteIcon src={TrashCan} alt={'delete'}/>
       <EditIcon src={Edit} alt={'Edit Entry'}/> 
+      </div>
+        )
+      })}
       <Footer />
     </StyledPage>
   )
