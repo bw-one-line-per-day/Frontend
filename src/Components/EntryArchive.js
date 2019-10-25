@@ -28,8 +28,10 @@ function EntryArchive(props) {
   ]);
 
   useEffect(function(){
-  axiosWithAuth.get('users/:id/posts')
-  }, []) 
+  axiosWithAuth().get('users/:id/posts')
+    // console.log('it works');  
+  }) 
+  }, []);  
 
   const addEntryData = post => {
       const NewPost = {
