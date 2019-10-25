@@ -1,3 +1,4 @@
+
   
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
@@ -59,10 +60,20 @@ import { Formik, Form, Field } from 'formik';
    />
    </div>
   )
+
 }
   
 
+    //   <Form>
+    //   <label>
+    //     <input type ='text' placeholder= 'Entry Content' onChange={evt => setEntryContent(evt.target.value)} />
+    //   </label>
+
+    //   <button> </button>
+    // </Form>
+
 export default EntryForm;
+
 
 
 
@@ -73,9 +84,21 @@ export default EntryForm;
 //   })
 // };
 
+
+//the form entry page returns whatever is submitted into the Form onSubmit
+//might be useful to put the userEntry input into a variable that takes and object/array
+// then have a <button onSubmit={does something with userData}></button>
+//state lives in the parent component and any functions necessary to change state exist at the same level
+//if a child needs to change state then it will receive the tools it needs through PROPS at the parent level
+
+
+
+// what about onChange={handleChangle} within each imput of the form? 
+
 // const onEntrySubmit = event => {
 //   {
 //     event.preventDefault(); 
 //     axios.post('/', {title, contents})
 //   }
 // }
+
