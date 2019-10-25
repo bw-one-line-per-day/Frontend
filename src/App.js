@@ -11,6 +11,7 @@ import PrivateRoute from './Auth/PrivateRoute';
 import SignUp from './Auth/SignUp';
 //import Login from '../Auth/'
 
+
 import HomePage from './Components/HomePage';
 import NewEntryPage from './Components/NewEntryPage';
 import EntryArchive from './Components/EntryArchive';
