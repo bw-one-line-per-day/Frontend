@@ -18,11 +18,13 @@ function HomePage() {
     <Nav />
     <LeftDiv>
     <ButtonArea>
-      <Button onClick={NewEntryPage}>
+      <Button><Link to='/NewEntry'>
         <img src={StartWritingButton} alt={'Click for new entry'} />
+        </Link>
       </Button>
-      <Button onClick={EntryArchive} alt={'Click to view all entries'}> 
+      <Button alt={'Click to view all entries'}> <Link to='/MyEntries'>
         <img src={MyEntriesButton} alt={'Click to view all entries'} />
+        </Link>
         </Button>
         <QuoteDiv>
         <h2><img src={Quotes} alt={'quotes'} />Change your thoughts and you change your world. <img src={Quotes} alt={'quotes'} /></h2> 
@@ -31,10 +33,6 @@ function HomePage() {
         </ButtonArea>
         </LeftDiv>
       
-      <Route path="/NewEntry"> <NewEntryPage/>  </Route> 
-      <Link to="/NewEntryPage"/>
-      <Route path="/MyEntries"> <EntryArchive/> </Route> 
-      <Link to="/EntryArchive"/> 
       <GirlDiv>
       <Girl img src={HomePageGirl} alt={'girl'}/>
       </GirlDiv>

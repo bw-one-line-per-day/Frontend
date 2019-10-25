@@ -1,3 +1,4 @@
+  
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
 
@@ -16,11 +17,11 @@ import {StoreContext} from '../contextAPI/Context.js';
   return(
     <div className='entry-form'>
       <Form>
-      <Field type='text' name='Title' value={entryData.title} placeholder='Title'/>
-      <Field component='textarea' value={entryData.content} type='text' name='contents' placeholder='Write about your day...' />
+      <Field type='text' name='Title' value={entryContent.title} placeholder='Title'/>
+      <Field component='textarea' value={entryContent.content} type='text' name='contents' placeholder='Write about your day...' />
       <button type='submit'> Save </button>
       </Form>
-      {entryData.map(entry => (      
+      {entryContent.map(entry => (      
         <ul key={entry.id}>
           <li>Title: {entry.Title}</li>
           <li>Entry: {entry.textArea}</li>
@@ -50,15 +51,7 @@ const myhandleSubmit = (values, {setStatus}) => {
   .catch(err => console.log(err)); 
 }
 
-
-      <label>
-        <input type ='text' placeholder= 'Entry Content' onChange={evt => setEntryContent(evt.target.value)} />
-      </label>
-
-      <button> </button>
-    </Form>
-  )
-} 
+    
 
 export default EntryForm;
 
