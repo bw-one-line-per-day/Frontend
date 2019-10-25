@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from "react"; 
 import styled from "styled-components"; 
 import Footer from './Footer.js'; 
-import {StoreContext} from 'contextAPI/Context.js'; 
+import {StoreContext} from '../contextAPI/Context.js'; 
 import Nav from './Nav.js'; 
 import EntryForm from './EntryForm.js'; 
 import  TrashCan  from '../Images/trashcan.svg';

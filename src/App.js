@@ -7,7 +7,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import PrivateRoute from './Auth/PrivateRoute';
 
-// import SignUp from './Auth/SignUp';
+import SignUp from './Auth/SignUp';
 //import Login from '../Auth/'
 
 
