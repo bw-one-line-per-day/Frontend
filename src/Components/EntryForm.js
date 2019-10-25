@@ -1,9 +1,11 @@
   
 import React, { useEffect, useState } from 'react'; 
+import styled from "styled-components"; 
 import axios from 'axios'; 
 import { axiosWithAuth } from '../Auth/axiosWithAuth'; 
 import { Route } from 'react-router-dom'; 
 import { Formik, Form, Field } from 'formik'; 
+
 // import {StoreContext} from './contextAPI/Context';
 
         
@@ -23,7 +25,7 @@ import { Formik, Form, Field } from 'formik';
   console.log(entryData);
 
   const handleSubmit = (entryData, tools) => {
-    axiosWithAuth.post (`/users/1/posts`, entryData)
+    axiosWithAuth.post (`/users//posts`, entryData)
       .then(response => {
         tools.resetForm();
         console.log(response);
@@ -61,6 +63,10 @@ import { Formik, Form, Field } from 'formik';
   )
 }
   
+const StyledPage = styled.div`
+
+`
+
 
 export default EntryForm;
 
