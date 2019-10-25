@@ -1,41 +1,63 @@
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
 import { Route } from 'react-router-dom'; 
-import { withFormik, Form, Field } from 'formik'; 
-import {StoreContext} from '../contextAPI/Context.js';
+import { Formik, Form, Field } from 'formik'; 
+// import {ContextProvider, StoreContext} from './contextAPI/Context';
         
 
 
 
  function EntryForm() {
-  const [entryTitle, setEntryTitle] = useState('');
-  const [entryContent, setEntryContent] = useState('');
+  // const [entryTitle, setEntryTitle] = useState('');
+  // const [entryContent, setEntryContent] = useState('');
+
+  const [entryData, setEntryData] = useState({
+    title: '',
+    contents: ''
+  });
   
 
+  const handleSubmit = (values, tools) => {
+    axios.post ('https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts', values)
+      .then(response => {
+        tools.resetForm();
+      })
+      .catch()
+      .finally ()
+  }
+
   return (
-     <Form 
-    //onSubmit={evt => {
-    //   evt.preventDefault(); 
-    //   axios.post('/', {title, contents})
-    // }}
-    >
-      <label>
-        <input type ='text' placeholder= 'Entry Title' onChange={evt => setEntryTitle(evt.target.value)} />
-      </label>
-
-      <label>
-        <input type ='text' placeholder= 'Entry Content' onChange={evt => setEntryContent(evt.target.value)} />
-      </label>
-
-      <button> </button>
-    </Form>
+    <div>
+    <Formik
+      initialValues = {{title:'', entry: ''}}
+      onSubmit = {handleSubmit}
+      render ={props => (
+       <Form>
+         <Field placeholder ='Entry Title' name='title' type='text'/>
+         <Field placeholder='Write you one line for today!' name='contents' type='text' />
+         <button type='submit'> Save your Entry! </button>
+       </Form>
+       
+      )}
+   />
+   </div>
   )
 } 
 
 export default EntryForm;
 
-//the form entry page returns whatever is submitted into the Form onSubmit 
-//might be useful to put the userEntry input into a variable that takes and object/array
-// then have a <button onSubmit={does something with userData}></button>
-//state lives in the parent component and any functions necessary to change state exist at the same level
-//if a child needs to change state then it will receive the tools it needs through PROPS at the parent level
+
+
+// const onInputChange = event => {
+//   setEntryData({
+//     ...entryData, 
+//     [event.target.name]: event.target.value,
+//   })
+// };
+
+// const onEntrySubmit = event => {
+//   {
+//     event.preventDefault(); 
+//     axios.post('/', {title, contents})
+//   }
+// }

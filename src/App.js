@@ -10,7 +10,8 @@ import PrivateRoute from './Auth/PrivateRoute';
 import SignUp from './Auth/SignUp'
 //import Login from '../Auth/'
 import HomePage from './Components/HomePage';
-import EntryForm from './Components/EntryForm'
+import EntryForm from './Components/EntryForm';
+
 
 
 
