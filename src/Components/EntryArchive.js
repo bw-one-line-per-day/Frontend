@@ -38,8 +38,8 @@ function EntryArchive() {
   return(
     <StyledPage>
       <Nav />
-      {/* console.log("in entryarchive funciton") working */}
       <Button> <img src={AddButton} alt={'Add New Entry'} /></Button>
+      {/* console.log("in entryarchive funciton") working */}
       {/* <SearchBar/> */}
       {/* <EntryForm addEntryDataFN={addEntryData} /> */}
       <DeleteIcon src={TrashCan} alt={'delete'}/>
