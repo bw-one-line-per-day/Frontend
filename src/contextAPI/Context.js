@@ -4,7 +4,7 @@ export const StoreContext = React.createContext({ });
 
 export const ContextProvider = (props) => {
 
-	const [userInfo, setUserInfo] = useState({username: 'chineek', password: '123344' });
+	const [userInfo, setUserInfo] = useState({username: '', password: '' });
 
 	const context = {userInfo, setUserInfo};
 	

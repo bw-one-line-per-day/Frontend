@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
-
+import { axiosWithAuth } from '../Auth/axiosWithAuth'; 
 import { Route } from 'react-router-dom'; 
 import { Formik, Form, Field } from 'formik'; 
-// import {ContextProvider, StoreContext} from './contextAPI/Context';
+// import {StoreContext} from './contextAPI/Context';
 
         
 
@@ -16,18 +16,31 @@ import { Formik, Form, Field } from 'formik';
   const [entryData, setEntryData] = useState({
     title: '',
     contents: ''
+    
   });
   
+  console.log(entryData);
 
-
-  const handleSubmit = (values, tools) => {
-    axios.post ('https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts', values)
+  const handleSubmit = (entryData, tools) => {
+    axiosWithAuth.post (`/users/1/posts`, entryData)
       .then(response => {
         tools.resetForm();
+        console.log(response);
       })
-      .catch()
-      .finally ()
+      .catch( (error) =>
+        console.log(error)
+        
+      )
+      
   }
+
+  const onInputChange = event => {
+    setEntryData({
+      ...entryData, 
+      [event.target.name]: event.target.value,
+    })
+    console.log(entryData);
+  };
 
   return (
     <div>
@@ -36,9 +49,9 @@ import { Formik, Form, Field } from 'formik';
       onSubmit = {handleSubmit}
       render ={props => (
        <Form>
-         <Field placeholder ='Entry Title' name='title' type='text'/>
-         <Field placeholder='Write you one line for today!' name='contents' type='text' />
-         <button type='submit'> Save your Entry! </button>
+         <Field placeholder ='Entry Title' name='title' type='text' value= {entryData.title} onChange={onInputChange}/>
+         <Field placeholder='Write you one line for today!' name='contents' type='text' value= {entryData.contents} onChange={onInputChange} />
+         <button type='submit' onSubmit={handleSubmit}> Save your Entry! </button>
        </Form>
        
       )}
