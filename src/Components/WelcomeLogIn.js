@@ -28,8 +28,8 @@ export default function WelcomeLogIn(props) {
     axiosWithAuth()
       .post('auth/login', form)
       .then(res => {
-        const { id, username, ...rest } = res.data.user;
-        setUserInfo({ id, username });
+        console.log(res.data);
+        setUserInfo(res.data);
         setTimeout(() => props.history.push('/MyEntries'), 1000);
       })
       .catch(err => {

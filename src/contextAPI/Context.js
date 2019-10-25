@@ -4,12 +4,17 @@ export const StoreContext = React.createContext({});
 
 export const ContextProvider = props => {
   // Password should be removed when going live, this is just for ease of development
-  const [userInfo, setUserInfo] = useState({
+  const [userInfo, setState] = useState({
     id: null,
     username: 'chineek',
     password: '123344'
   });
-
+  const setUserInfo = data => {
+    const { token, user } = data;
+    const { id, username } = user;
+    localStorage.setItem('token', token);
+    setState({ id, username });
+  };
   const context = { userInfo, setUserInfo };
 
   return (
