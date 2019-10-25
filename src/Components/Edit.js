@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 
 const Edit = (props) => {
-  useEffect (
+  // useEffect (
   
-  )
+  // )
 return (
   <div>
     <Link to='/MyEntries'> 

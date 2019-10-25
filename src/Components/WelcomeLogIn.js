@@ -30,7 +30,7 @@ export default function WelcomeLogIn(props) {
       .then(res => {
         console.log(res.data);
         setUserInfo(res.data);
-        setTimeout(() => props.history.push('/MyEntries'), 1000);
+        setTimeout(() => props.history.push('/Home'), 1000);
       })
       .catch(err => {
         if (err.response) {
