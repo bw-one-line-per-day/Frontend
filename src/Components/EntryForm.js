@@ -1,11 +1,13 @@
 
   
-import React, { useEffect, useState } from 'react'; 
+import React, { useState, useEffect, useContext } from "react"; 
+import styled from "styled-components"; 
 import axios from 'axios'; 
 import { axiosWithAuth } from '../Auth/axiosWithAuth'; 
 import { Route } from 'react-router-dom'; 
 import { Formik, Form, Field } from 'formik'; 
-// import {StoreContext} from './contextAPI/Context';
+
+import {StoreContext} from 'contextAPI/Context.js';
 
         
 
@@ -15,18 +17,23 @@ import { Formik, Form, Field } from 'formik';
   // const [entryTitle, setEntryTitle] = useState('');
   // const [entryContent, setEntryContent] = useState('');
 
+  const { userInfo } = useContext(StoreContext);
+  console.log(userInfo);
+
   const [entryData, setEntryData] = useState({
     title: '',
     contents: ''
     
   });
   
-  console.log(entryData);
+  // console.log(entryData);
+  
+  // console.log(`${userInfo}`);
 
-  const handleSubmit = (entryData, tools) => {
-    axiosWithAuth.post (`/users/1/posts`, entryData)
+
+  const handleSubmit = (tools) => {
+    axiosWithAuth().post (`users/${userInfo.id}/posts`, entryData)
       .then(response => {
-        tools.resetForm();
         console.log(response);
       })
       .catch( (error) =>
@@ -63,6 +70,10 @@ import { Formik, Form, Field } from 'formik';
 
 }
   
+const StyledPage = styled.div`
+
+`
+
 
     //   <Form>
     //   <label>
