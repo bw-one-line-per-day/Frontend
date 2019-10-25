@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect, useContext } from "react"; 
-import styled from "styled-components";
-// import SearchBar from './SearchBar.js'; 
+import styled from "styled-components"; 
 import Footer from './Footer.js'; 
 import {StoreContext} from 'contextAPI/Context.js'; 
 import Nav from './Nav.js'; 
@@ -45,14 +44,14 @@ function EntryArchive(props) {
     })
   }, []);  
 
-  const addEntryData = post => {
-    const NewPost = {
-      id: Date.now(),
-      title: post.title,
-      content: post.content
-    };
-    setEntry([...entry, NewPost]);
-  };
+  // const addEntryData = post => {
+  //   const NewPost = {
+  //     id: Date.now(),
+  //     title: post.title,
+  //     content: post.content
+  //   };
+  //   setEntry([...entry, NewPost]);
+  // };
 
   return (
     <StyledPage>
@@ -66,7 +65,7 @@ function EntryArchive(props) {
         <p>{title}</p>
         <p>{contents}</p>
 
-      {/* <SearchBar/> */}
+      
       {/* <EntryForm addEntryDataFN={addEntryData} /> */}
       <DeleteIcon src={TrashCan} alt={'delete'} onClick={() => axiosWithAuth().delete(`users/posts/${id}`).then(res => setEntry(entry.filter(e => e.id !== id)))} />
       <EditIcon src={Edit} alt={'Edit Entry'}/> 
