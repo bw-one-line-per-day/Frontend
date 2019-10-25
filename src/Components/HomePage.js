@@ -18,12 +18,15 @@ function HomePage(props) {
     <Nav />
     <LeftDiv>
     <ButtonArea>
-      <Button onClick={() => props.history.push('/NewEntry')}>
-      
+
+      <Button><Link to='/NewEntry'>
         <img src={StartWritingButton} alt={'Click for new entry'} />
+        </Link>
       </Button>
-      <Button onClick={() => props.history.push('/MyEntries')} alt={'Click to view all entries'}> 
+
+      <Button alt={'Click to view all entries'}> <Link to='/MyEntries'>
         <img src={MyEntriesButton} alt={'Click to view all entries'} />
+        </Link>
         </Button>
         <QuoteDiv>
         <h2><img src={Quotes} alt={'quotes'} />Change your thoughts and you change your world. <img src={Quotes} alt={'quotes'} /></h2> 
@@ -32,10 +35,6 @@ function HomePage(props) {
         </ButtonArea>
         </LeftDiv>
       
-      <Route path="/NewEntry"> <NewEntryPage/>  </Route> 
-      <Link to="/NewEntryPage"/>
-      <Route path="/MyEntries"> <EntryArchive/> </Route> 
-      <Link to="/EntryArchive"/> 
       <GirlDiv>
       <Girl img src={HomePageGirl} alt={'girl'}/>
       </GirlDiv>

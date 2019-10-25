@@ -1,49 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
-import { withFormik, Form, Field } from 'formik';
-import { StoreContext } from '../contextAPI/Context.js';
+  
+import React, { useEffect, useState } from 'react'; 
+import axios from 'axios'; 
+import { axiosWithAuth } from '../Auth/axiosWithAuth'; 
+import { Route } from 'react-router-dom'; 
+import { Formik, Form, Field } from 'formik'; 
+// import {StoreContext} from './contextAPI/Context';
 
-function EntryForm() {
-  const [entryTitle, setEntryTitle] = useState('');
-  const [entryContent, setEntryContent] = useState('');
+        
+
+
+
+ function EntryForm() {
+  // const [entryTitle, setEntryTitle] = useState('');
+  // const [entryContent, setEntryContent] = useState('');
+
+  const [entryData, setEntryData] = useState({
+    title: '',
+    contents: ''
+    
+  });
+  
+  console.log(entryData);
+
+  const handleSubmit = (entryData, tools) => {
+    axiosWithAuth.post (`/users/1/posts`, entryData)
+      .then(response => {
+        tools.resetForm();
+        console.log(response);
+      })
+      .catch( (error) =>
+        console.log(error)
+        
+      )
+      
+  }
+
+  const onInputChange = event => {
+    setEntryData({
+      ...entryData, 
+      [event.target.name]: event.target.value,
+    })
+    console.log(entryData);
+  };
 
   return (
-    <div className="entry-form">
-      <Form>
-      <Field type='text' name='Title' value={entryTitle} placeholder='Title'/>
-      <Field component='textarea' value={entryContent} type='text' name='contents' placeholder='Write about your day...' />
-      <button type='submit'> Save </button>
-      </Form>
-      {/* {entryD.map(entry => (      
-        <ul key={entry.id}>
-          <li>Title: {entryTitle}</li>
-          <li>Entry: {entryContent}</li>
-        </ul>
-      ))} */}
-      </div> 
+    <div>
+    <Formik
+      initialValues = {{title:'', entry: ''}}
+      onSubmit = {handleSubmit}
+      render ={props => (
+       <Form>
+         <Field placeholder ='Entry Title' name='title' type='text' value= {entryData.title} onChange={onInputChange}/>
+         <Field placeholder='Write you one line for today!' name='contents' type='text' value= {entryData.contents} onChange={onInputChange} />
+         <button type='submit' onSubmit={handleSubmit}> Save your Entry! </button>
+       </Form>
+       
+      )}
+   />
+   </div>
   )
-}
 
-const myMapPropstoValues = props => {
-  console.log(props);
-  const returnObj = {
-    Title: props.Title || '',
-    Entry: props.Entry || ''
-  };
-  return returnObj;
-};
-
-const myhandleSubmit = (values, { setStatus }) => {
-  console.log('Submitted Entry!');
-  axios
-  .post('https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts') //Where :id in URL is user id, Takes an object including: { title: "title", contents: "contents" }, Returns id of post
-  .then(response => {
-    console.log(response); 
-    setStatus(response.data); 
-  })
-  .catch(err => console.log(err)); 
 }
+  
 
     //   <Form>
     //   <label>
@@ -55,6 +74,17 @@ const myhandleSubmit = (values, { setStatus }) => {
 
 export default EntryForm;
 
+
+
+
+// const onInputChange = event => {
+//   setEntryData({
+//     ...entryData, 
+//     [event.target.name]: event.target.value,
+//   })
+// };
+
+
 //the form entry page returns whatever is submitted into the Form onSubmit
 //might be useful to put the userEntry input into a variable that takes and object/array
 // then have a <button onSubmit={does something with userData}></button>
@@ -64,3 +94,11 @@ export default EntryForm;
 
 
 // what about onChange={handleChangle} within each imput of the form? 
+
+// const onEntrySubmit = event => {
+//   {
+//     event.preventDefault(); 
+//     axios.post('/', {title, contents})
+//   }
+// }
+
