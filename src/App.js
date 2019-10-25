@@ -7,7 +7,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import PrivateRoute from './Auth/PrivateRoute';
 
-
 import SignUp from './Auth/SignUp';
 //import Login from '../Auth/'
 
@@ -23,7 +22,6 @@ function App() {
     <Router>
       <div className="App">
 
-        <Route exact path="/" component={SignUp} />
         <Switch>
         <Route exact path="/" component={SignUp} />
         <Route exact path="/login" component={WelcomeLogIn} />

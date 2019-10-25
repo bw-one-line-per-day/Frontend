@@ -1,9 +1,10 @@
 
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from 'react-router-dom';  
+import React, { useState, useEffect, useContext } from "react"; 
+import { Link } from 'react-router-dom';
+
 import styled from "styled-components"; 
 import Footer from './Footer.js'; 
-import {StoreContext} from 'contextAPI/Context.js'; 
+import {StoreContext} from '../contextAPI/Context.js'; 
 import Nav from './Nav.js'; 
 import EntryForm from './EntryForm.js'; 
 import  TrashCan  from '../Images/trashcan.svg';
@@ -58,7 +59,13 @@ function EntryArchive(props) {
     <StyledPage>
       
       <Nav />
+
       <Button onClick={() => props.history.push}> <img src={AddButton} alt={'Add New Entry'} /></Button>
+
+      <Link to='/NewEntry'> <img src={AddButton} alt={'Add New Entry'} /></Link>
+      {/* <Button> <img src={AddButton} alt={'Add New Entry'} /></Button> */}
+      {/* <Link to='/'>Sign In</Link> */}
+
 
       {entry.map(({id, title, contents}) => { 
         return (
