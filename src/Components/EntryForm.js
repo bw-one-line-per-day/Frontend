@@ -1,3 +1,4 @@
+  
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
 import { axiosWithAuth } from '../Auth/axiosWithAuth'; 
@@ -61,9 +62,13 @@ import { Formik, Form, Field } from 'formik';
 }
   
 
+<<<<<<< HEAD
+    
+=======
 export default EntryForm;
 
 
+>>>>>>> 723fedffbffeb6d5d50030cac90c5fd861d4488e
 
 // const onInputChange = event => {
 //   setEntryData({
