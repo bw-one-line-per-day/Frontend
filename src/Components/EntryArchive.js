@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useContext } from "react"; 
+import { Link } from 'react-router-dom';
 import styled from "styled-components"; 
 import Footer from './Footer.js'; 
 import {StoreContext} from 'contextAPI/Context.js'; 
@@ -57,7 +58,9 @@ function EntryArchive(props) {
     <StyledPage>
       
       <Nav />
-      <Button> <img src={AddButton} alt={'Add New Entry'} /></Button>
+      <Link to='/NewEntry'> <img src={AddButton} alt={'Add New Entry'} /></Link>
+      {/* <Button> <img src={AddButton} alt={'Add New Entry'} /></Button> */}
+      {/* <Link to='/'>Sign In</Link> */}
 
       {entry.map(({id, title, contents}) => { 
         return (
