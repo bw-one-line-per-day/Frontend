@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useContext } from "react"; 
 import { Link } from 'react-router-dom';
+
 import styled from "styled-components"; 
 import Footer from './Footer.js'; 
 import {StoreContext} from '../contextAPI/Context.js'; 
@@ -18,18 +19,18 @@ function EntryArchive(props) {
     {
       id: 1,
       title: 'A beatiful Fall Day',
-      content:
+      contents:
         'Played outside with Aria today, she loves throwing leaves at me and Allie.'
     },
     {
       id: 2,
       title: 'Rainy Days',
-      content: "Rain and a toddler doesn't mix, made cookies today."
+      contents: "Rain and a toddler doesn't mix, made cookies today."
     },
     {
       id: 3,
       title: 'Tic Tac Toe',
-      content:
+      contents:
         'Aria and I played Tic Tac Toe on a codepen I made while learning react. I left her win.'
     }
   ]);
@@ -58,9 +59,13 @@ function EntryArchive(props) {
     <StyledPage>
       
       <Nav />
+
+      <Button onClick={() => props.history.push}> <img src={AddButton} alt={'Add New Entry'} /></Button>
+
       <Link to='/NewEntry'> <img src={AddButton} alt={'Add New Entry'} /></Link>
       {/* <Button> <img src={AddButton} alt={'Add New Entry'} /></Button> */}
       {/* <Link to='/'>Sign In</Link> */}
+
 
       {entry.map(({id, title, contents}) => { 
         return (
@@ -70,8 +75,9 @@ function EntryArchive(props) {
 
       
       {/* <EntryForm addEntryDataFN={addEntryData} /> */}
-      <DeleteIcon src={TrashCan} alt={'delete'} onClick={() => axiosWithAuth().delete(`users/posts/${id}`).then(res => setEntry(entry.filter(e => e.id !== id)))} />
-      <EditIcon src={Edit} alt={'Edit Entry'}/> 
+      <DeleteIcon src={TrashCan} alt={'delete'} onClick={() => axiosWithAuth().delete(`users/posts/${id}`).then(res => setEntry(entry.filter(event => event.id !== id)))} />
+      <Link to={`/edit/${id}`}><EditIcon src={Edit} alt={'Edit Entry'} /> 
+      </Link>
       </div>
         )
       })}
