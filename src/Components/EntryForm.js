@@ -18,7 +18,7 @@ import {StoreContext} from 'contextAPI/Context.js';
   // const [entryContent, setEntryContent] = useState('');
 
   const { userInfo } = useContext(StoreContext);
-  console.log(userInfo);
+  //console.log(userInfo);
 
   const [entryData, setEntryData] = useState({
     title: '',
@@ -48,7 +48,7 @@ import {StoreContext} from 'contextAPI/Context.js';
       ...entryData, 
       [event.target.name]: event.target.value,
     })
-    console.log(entryData);
+    //console.log(entryData);
   };
 
   return (
