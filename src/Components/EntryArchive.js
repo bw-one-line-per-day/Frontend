@@ -18,18 +18,18 @@ function EntryArchive(props) {
     {
       id: 1,
       title: 'A beatiful Fall Day',
-      content:
+      contents:
         'Played outside with Aria today, she loves throwing leaves at me and Allie.'
     },
     {
       id: 2,
       title: 'Rainy Days',
-      content: "Rain and a toddler doesn't mix, made cookies today."
+      contents: "Rain and a toddler doesn't mix, made cookies today."
     },
     {
       id: 3,
       title: 'Tic Tac Toe',
-      content:
+      contents:
         'Aria and I played Tic Tac Toe on a codepen I made while learning react. I left her win.'
     }
   ]);
@@ -69,7 +69,7 @@ function EntryArchive(props) {
       
       {/* <EntryForm addEntryDataFN={addEntryData} /> */}
       <DeleteIcon src={TrashCan} alt={'delete'} onClick={() => axiosWithAuth().delete(`users/posts/${id}`).then(res => setEntry(entry.filter(event => event.id !== id)))} />
-      <Link to='/Edit'><EditIcon src={Edit} alt={'Edit Entry'}/> 
+      <Link to={`/edit/${id}`}><EditIcon src={Edit} alt={'Edit Entry'} /> 
       </Link>
       </div>
         )
