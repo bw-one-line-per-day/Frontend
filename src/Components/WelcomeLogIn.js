@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import notebookIcon from '../Images/noteBookImage.png';
 import girlMobilePhone from '../Images/girl-mobile.png';
 
-import { axiosWithAuth } from 'Auth/axiosWithAuth.js';
+import { axiosWithAuth } from '../Auth/axiosWithAuth.js';
 
 export default function WelcomeLogIn(props) {
   const { userInfo, setUserInfo } = useContext(StoreContext);
