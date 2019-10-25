@@ -60,8 +60,6 @@ function EntryArchive(props) {
       
       <Nav />
 
-      <Button onClick={() => props.history.push}> <img src={AddButton} alt={'Add New Entry'} /></Button>
-
       <Link to='/NewEntry'> <img src={AddButton} alt={'Add New Entry'} /></Link>
       {/* <Button> <img src={AddButton} alt={'Add New Entry'} /></Button> */}
       {/* <Link to='/'>Sign In</Link> */}
@@ -72,8 +70,6 @@ function EntryArchive(props) {
       <div key={id}>
         <p>{title}</p>
         <p>{contents}</p>
-
-      
       {/* <EntryForm addEntryDataFN={addEntryData} /> */}
       <DeleteIcon src={TrashCan} alt={'delete'} onClick={() => axiosWithAuth().delete(`users/posts/${id}`).then(res => setEntry(entry.filter(event => event.id !== id)))} />
       <Link to={`/edit/${id}`}><EditIcon src={Edit} alt={'Edit Entry'} /> 
