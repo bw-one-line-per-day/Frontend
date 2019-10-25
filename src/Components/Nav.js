@@ -2,15 +2,21 @@ import React from "react";
 import styled from 'styled-components'; 
 import Logo from '../Images/Logo.png'; 
 import SignOutButton from '../Images/SignOutButton.png'; 
+import { AST_PropAccess } from "terser";
 
 function Nav() {
+  const signOut = e => {
+    e.preventDefault()
+ localStorage.removeItem('token')
+  }
+  
   return (
     <StyledNav>
       <LeftDiv>
       <LogoStyled img src={Logo} alt='note pad with pen'/> 
       <LogoTitle> One Line a Day </LogoTitle> 
       </LeftDiv>
-      <Button> <ImgStyled img src={SignOutButton} alt={'Click here to sign out'} /> </Button>
+      <Button onClick={signOut}> <ImgStyled img src={SignOutButton} alt={'Click here to sign out'} /> </Button>
     </StyledNav>
   )
 }
