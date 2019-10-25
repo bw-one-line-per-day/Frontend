@@ -1,5 +1,6 @@
 
-import React, { useState, useEffect, useContext } from "react"; 
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from 'react-router-dom';  
 import styled from "styled-components"; 
 import Footer from './Footer.js'; 
 import {StoreContext} from 'contextAPI/Context.js'; 
@@ -57,7 +58,7 @@ function EntryArchive(props) {
     <StyledPage>
       
       <Nav />
-      <Button> <img src={AddButton} alt={'Add New Entry'} /></Button>
+      <Button onClick={() => props.history.push}> <img src={AddButton} alt={'Add New Entry'} /></Button>
 
       {entry.map(({id, title, contents}) => { 
         return (
@@ -67,8 +68,9 @@ function EntryArchive(props) {
 
       
       {/* <EntryForm addEntryDataFN={addEntryData} /> */}
-      <DeleteIcon src={TrashCan} alt={'delete'} onClick={() => axiosWithAuth().delete(`users/posts/${id}`).then(res => setEntry(entry.filter(e => e.id !== id)))} />
-      <EditIcon src={Edit} alt={'Edit Entry'}/> 
+      <DeleteIcon src={TrashCan} alt={'delete'} onClick={() => axiosWithAuth().delete(`users/posts/${id}`).then(res => setEntry(entry.filter(event => event.id !== id)))} />
+      <Link to='/Edit'><EditIcon src={Edit} alt={'Edit Entry'}/> 
+      </Link>
       </div>
         )
       })}
