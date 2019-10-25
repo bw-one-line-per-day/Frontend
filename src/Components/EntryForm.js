@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios'; 
+
 import { Route } from 'react-router-dom'; 
 import { Formik, Form, Field } from 'formik'; 
 // import {ContextProvider, StoreContext} from './contextAPI/Context';
+
         
 
 
@@ -16,6 +18,7 @@ import { Formik, Form, Field } from 'formik';
     contents: ''
   });
   
+
 
   const handleSubmit = (values, tools) => {
     axios.post ('https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts', values)
@@ -42,7 +45,8 @@ import { Formik, Form, Field } from 'formik';
    />
    </div>
   )
-} 
+}
+  
 
 export default EntryForm;
 

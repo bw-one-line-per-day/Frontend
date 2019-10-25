@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { axiosWithAuth } from './axiosWithAuth'
+import {BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components'
 import SignUpImage from '../Assets/SignUp.png'
 import Button from '../Assets/SignUpButton.png'
 //import InactiveButton from '../Assets/SignUpInactiveButton'
+import LogoImg from '../Images/Logo.png'
+import WelcomeLogIn from '../Components/WelcomeLogIn.js';
 
 const SignUp = (props) => {
   const [credentials, setCredentials] = useState({
@@ -31,6 +34,10 @@ const SignUp = (props) => {
 
   return (
     <>
+    <Header>
+      <Logo src={LogoImg} />
+      <Title>ONE LINE A DAY</Title>
+    </Header>
     <Page>
     <img src={SignUpImage} />
         <RegisterBox>
@@ -52,12 +59,35 @@ const SignUp = (props) => {
           />
           <SignUpButton onClick={signUp}><img src={Button}/></SignUpButton>
           </form>
-          <BackToSignIn>Already have an account? Sign In</BackToSignIn>
+          
+          <BackToSignIn>Already have an account?</BackToSignIn>
+        
+          <Link to='/login'>Sign In</Link>
+       
         </RegisterBox>
     </Page>
     </>
   );
 };
+
+const Title = styled.h1`
+font-size: 5rem;
+margin-left: 25%;
+color: rgb(234, 126, 76);
+`
+
+const Logo = styled.img`
+margin-top: 30px;
+margin-left: 3%;
+width: 83px;
+height: 115px;
+`
+const Header = styled.header`
+padding-top: 10px;
+display: flex;
+flex-direction: row;
+background: #FEE5E2;
+`
 
 const Page = styled.div`
 display: flex;

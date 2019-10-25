@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import {StoreContext} from '../contextAPI/Context.js';
 
@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 import notebookIcon from '../Images/noteBookImage.png';
 import girlMobilePhone from '../Images/girl-mobile.png';
+
 
 
 
@@ -74,9 +75,7 @@ export default function WelcomeLogIn(props) {
 								<Button>SIGN IN</Button>
 							</DivButtonWrapper>
 						</form>
-						<Router>
-							<Paragraph>DON'T HAVE AN ACCOUNT?<NavLink to='/signup'>SIGN UP</NavLink></Paragraph>
-						</Router>
+							<Paragraph>DON'T HAVE AN ACCOUNT?<NavLink to='/'>SIGN UP</NavLink></Paragraph>
 					</div>
 				</DivWrapper>
 				
