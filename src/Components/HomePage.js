@@ -12,16 +12,18 @@ import MyEntriesButton from '../Images/MyEntriesButton.png';
 import HomePageGirl from '../Images/HomePageGirl.png'; 
 import Quotes from '../Images/Quotes.png'; 
 
-function HomePage() {
+function HomePage(props) {
   return (
     <StyledPage>
     <Nav />
     <LeftDiv>
     <ButtonArea>
+
       <Button><Link to='/NewEntry'>
         <img src={StartWritingButton} alt={'Click for new entry'} />
         </Link>
       </Button>
+
       <Button alt={'Click to view all entries'}> <Link to='/MyEntries'>
         <img src={MyEntriesButton} alt={'Click to view all entries'} />
         </Link>
