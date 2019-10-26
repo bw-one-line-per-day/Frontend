@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useContext } from 'react'; 
-//import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { axiosWithAuth } from '../Auth/axiosWithAuth'; 
 import { Formik, Form, Field } from 'formik'; 
 
@@ -12,8 +12,8 @@ import SaveEntryButton from '../Images/SaveEntryButton.png';
 import {StoreContext} from 'contextAPI/Context.js';
 
     
-function EntryForm() {
-
+function EntryForm(props) {
+  console.log(props);
   const { userInfo } = useContext(StoreContext);
   //console.log(userInfo);
 
@@ -23,11 +23,16 @@ function EntryForm() {
     
   });
 
-  const handleSubmit = (tools) => {
+  const handleSubmit = (props, tools) => {
     axiosWithAuth().post (`users/${userInfo.id}/posts`, entryData)
       .then(response => {
         console.log(response);
       })
+
+      .then(()=> {
+        props.history.push('/MyEntries');
+      })
+      
       .catch( (error) =>
         console.log(error)
         
@@ -75,12 +80,10 @@ const StyledPage = styled.div`
 // const StyledField = styled(Field)`
 // `;
 
-const SaveButton = styled.button`
-background-color: 
-`;
+
 
 const SaveEntryImg = styled.img`
-  width: 90%;
+  width: 100%;
 `;
 
 
