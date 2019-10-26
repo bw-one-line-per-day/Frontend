@@ -28,7 +28,7 @@ function App() {
         <PrivateRoute path="/home" component={HomePage} />
         <PrivateRoute path="/NewEntry" component={NewEntryPage} />
         <PrivateRoute path="/MyEntries" component={EntryArchive} />
-        <PrivateRoute path="/edit/:id"> <Edit /></PrivateRoute> 
+        <PrivateRoute path="/edit/:id" component={Edit} />
         </Switch>
 
 
