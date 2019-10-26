@@ -14,6 +14,7 @@ import SignUp from './Auth/SignUp';
 import HomePage from './Components/HomePage';
 import NewEntryPage from './Components/NewEntryPage';
 import EntryArchive from './Components/EntryArchive';
+import Edit from './Components/Edit'; 
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <PrivateRoute path="/home" component={HomePage} />
         <PrivateRoute path="/NewEntry" component={NewEntryPage} />
         <PrivateRoute path="/MyEntries" component={EntryArchive} />
+        <PrivateRoute path="/edit/:id"> <Edit /></PrivateRoute> 
         </Switch>
 
 

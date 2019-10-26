@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import notebookIcon from '../Images/noteBookImage.png';
 import girlMobilePhone from '../Images/girl-mobile.png';
 
-import { axiosWithAuth } from 'Auth/axiosWithAuth.js';
+import { axiosWithAuth } from '../Auth/axiosWithAuth.js';
 
 export default function WelcomeLogIn(props) {
   const { userInfo, setUserInfo } = useContext(StoreContext);
@@ -30,7 +30,7 @@ export default function WelcomeLogIn(props) {
       .then(res => {
         console.log(res.data);
         setUserInfo(res.data);
-        setTimeout(() => props.history.push('/MyEntries'), 1000);
+        setTimeout(() => props.history.push('/Home'), 1000);
       })
       .catch(err => {
         if (err.response) {

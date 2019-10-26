@@ -15,7 +15,7 @@ import {StoreContext} from 'contextAPI/Context.js';
 function EntryForm() {
 
   const { userInfo } = useContext(StoreContext);
-  console.log(userInfo);
+  //console.log(userInfo);
 
   const [entryData, setEntryData] = useState({
     title: '',
@@ -38,7 +38,7 @@ function EntryForm() {
       ...entryData, 
       [event.target.name]: event.target.value,
     })
-    console.log(entryData);
+    //console.log(entryData);
   };
 
   return (
