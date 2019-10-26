@@ -5,7 +5,7 @@ import {StoreContext} from '../contextAPI/Context.js';
 
 const Edit = (props) => {
 
-const [entry, setEntry] = useState(); 
+const [entry, setEntry] = useState({}); 
 const id = parseInt(props.match.params.id,10); 
 const { userInfo } = useContext(StoreContext);
 
@@ -22,22 +22,27 @@ const { userInfo } = useContext(StoreContext);
   console.log(entry, "entry to be edited");
   
 
-  useEffect(function(){
-    axiosWithAuth().put(`users/posts/${id}`, {title: entry.title, contents: entry.contents})
-    .then(response => {
-      console.log(response, "response of editing a entry"); 
-      setEntry(response.data); 
-    })
-    .catch(error => {
-      console.log(error, "editing fail");
-    })
-  }, []);
-  console.log(entry, "entry after editing"); 
+  const handleTitleChange = event =>{
+    setEntry({ ...entry, title: event.target.value });
+  }
+
+  const handleContentsChange = event =>{
+    setEntry({...entry, contents: event.target.value});
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
     console.log(entry.title,"editing title");
     console.log(entry.contents, "editing contents");
+    axiosWithAuth().put(`users/posts/${id}`, {title: entry.title, contents: entry.contents})
+    .then(response => {
+      console.log(response, "response of editing a entry"); 
+      setEntry(props.history.push("/MyEntries")); 
+    })
+    .catch(error => {
+      console.log(error, "editing fail");
+    })
+    console.log(entry, "entry after editing"); 
   };
 
 return (
@@ -46,16 +51,12 @@ return (
     <button > here</button>
     </Link>
     <form onSubmit={event => handleSubmit(event)} >   
-      <label >
-        <input type='text' defaultValue='title'>
-          {entry.title} 
-        </input> 
-      </label>
-      <label>
-        <textarea rows='10' cols='50'> 
-          {entry.contents}
-        </textarea> 
-      </label>
+        <input type='text' 
+        onChange={event => handleTitleChange(event)}
+        value={entry.title} />
+        <input type='textarea' rows='10' cols='50' 
+        onChange={event => handleContentsChange(event)}
+        value={entry.contents} /> 
       <label>
         <button> Submit! </button>
       </label>
