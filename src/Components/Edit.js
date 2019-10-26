@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 
 const Edit = (props) => {
-  // useEffect (
+  useEffect (() => {
+    const id = props.match.params.id; 
+  }
   
-  // )
+  )
 return (
   <div>
     <Link to='/MyEntries'> 
