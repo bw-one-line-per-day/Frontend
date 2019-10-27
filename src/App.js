@@ -9,6 +9,7 @@ import PrivateRoute from './Auth/PrivateRoute';
 
 import SignUp from './Auth/SignUp';
 //import Login from '../Auth/'
+import styled from 'styled-components';
 
 
 import HomePage from './Components/HomePage';
@@ -20,6 +21,7 @@ import Edit from './Components/Edit';
 function App() {
   return (
     <Router>
+      <StyledApp>
       <div className="App">
 
         <Switch>
@@ -33,8 +35,18 @@ function App() {
 
 
       </div>
+
+      </StyledApp>
     </Router>
   );
 }
 
+
+const StyledApp = styled.div`
+background: #fee5e2;
+`;
+
 export default App;
+
+
+

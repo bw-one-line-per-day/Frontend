@@ -7,7 +7,7 @@ import { Formik, Form, Field } from 'formik';
 import styled from "styled-components"; 
 import Nav from './Nav.js'; 
 import Footer from './Footer.js'; 
-import SaveEntryButton from '../Images/SaveEntryButton.png';
+import SaveEntryButton from '../Images/';
 
 import {StoreContext} from 'contextAPI/Context.js';
 
@@ -16,6 +16,10 @@ function EntryForm(props) {
   console.log(props);
   const { userInfo } = useContext(StoreContext);
   //console.log(userInfo);
+
+  // useEffect(() => {
+  //   <Link to></Link>
+  // }, [handleSubmit]) 
 
   const [entryData, setEntryData] = useState({
     title: '',
@@ -54,14 +58,14 @@ function EntryForm(props) {
           initialValues = {{title:'', entry: ''}}
           onSubmit = {handleSubmit}
           render ={props => (
-            <Form>
+            <StyledForm>
                 
-              <Field placeholder ='ENTRY TITLE' name='title' type='text' value= {entryData.title} onChange={onInputChange} />
+              <StyledEntryTitle className ='entryTitle' placeholder ='ENTRY TITLE' name='title' type='text' value= {entryData.title} onChange={onInputChange} />
 
-              <Field placeholder="ADD YOUR TEXT" name='contents' type='text' value= {entryData.contents} onChange={onInputChange} />
+              <StyledEntryContents className = 'entryContents' placeholder="ADD YOUR TEXT" name='contents' type='text' value= {entryData.contents} onChange={onInputChange} />
 
-              <button type='submit' onSubmit={handleSubmit}> <SaveEntryImg img src={SaveEntryButton} alt={'Click here to sign out'} /> </button>
-            </Form>
+              <StyledEntryButton type='submit' onSubmit={handleSubmit}> <SaveEntryButton img src={SaveEntryButton} alt={'Click here to sign out'} /> </StyledEntryButton>
+            </StyledForm>
           )}
           />
       </div>
@@ -74,7 +78,40 @@ function EntryForm(props) {
 const StyledPage = styled.div`
   background: #fee5e2;
   height: 100vw;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
   
+`;
+
+const StyledForm = styled.form`
+  display: block;
+  
+`;
+
+const StyledEntryTitle = styled.input`
+  display: block;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+  height: 3rem;
+  border-radius: 10px;
+  border: 1px;
+`;
+
+const StyledEntryContents = styled.input`
+  display: block;
+  width: 90%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 10rem;
+  border-radius: 10px;
+  border: 2px;
+
 `;
 
 // const StyledField = styled(Field)`
@@ -83,7 +120,21 @@ const StyledPage = styled.div`
 
 
 const SaveEntryImg = styled.img`
-  width: 100%;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  margin: 2em;
+  border: none;
+  background: none;
+`;
+
+const StyledEntryButton = styled.button`
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  margin: 2em;
+  border: none;
+  background: none;
 `;
 
 
