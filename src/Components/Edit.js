@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'; 
+import styled from 'styled-components'; 
 import { Link } from 'react-router-dom'; 
 import { axiosWithAuth } from 'Auth/axiosWithAuth';
 import {StoreContext} from '../contextAPI/Context.js'; 
@@ -46,9 +47,9 @@ const { userInfo } = useContext(StoreContext);
   };
 
 return (
-  <div>
+  <EditStyled>
     <Link to='/MyEntries'> 
-    <button > here</button>
+    <button > Go Back to My Entries </button>
     </Link>
     <form onSubmit={event => handleSubmit(event)} >   
         <input type='text' 
@@ -62,8 +63,16 @@ return (
       </label>
 
     </form>
-  </div>
+  </EditStyled>
   )
 } 
+
+
+const EditStyled = styled.div`
+  background: #fee5e2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
 export default Edit; 

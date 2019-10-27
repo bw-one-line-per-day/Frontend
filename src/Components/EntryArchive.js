@@ -15,25 +15,25 @@ function EntryArchive(props) {
 
   const { userInfo } = useContext(StoreContext);
 
-  const [entry, setEntry] = useState([
-    {
-      id: 1,
-      title: 'A beatiful Fall Day',
-      contents:
-        'Played outside with Aria today, she loves throwing leaves at me and Allie.'
-    },
-    {
-      id: 2,
-      title: 'Rainy Days',
-      contents: "Rain and a toddler doesn't mix, made cookies today."
-    },
-    {
-      id: 3,
-      title: 'Tic Tac Toe',
-      contents:
-        'Aria and I played Tic Tac Toe on a codepen I made while learning react. I left her win.'
-    }
-  ]);
+  const [entry, setEntry] = useState([userInfo]);
+  //   {
+  //     id: 1,
+  //     title: 'A beatiful Fall Day',
+  //     contents:
+  //       'Played outside with Aria today, she loves throwing leaves at me and Allie.'
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Rainy Days',
+  //     contents: "Rain and a toddler doesn't mix, made cookies today."
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Tic Tac Toe',
+  //     contents:
+  //       'Aria and I played Tic Tac Toe on a codepen I made while learning react. I left her win.'
+  //   }
+  // ]);
 
   useEffect(function(){
   axiosWithAuth().get(`users/${userInfo.id}/posts`)
@@ -84,7 +84,7 @@ function EntryArchive(props) {
 
 const StyledPage = styled.div`
   background: #fee5e2;
-  // height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;
