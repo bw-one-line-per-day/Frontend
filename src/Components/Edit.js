@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'; 
 import styled from 'styled-components'; 
+import Nav from 'Components/Nav'; 
+import Footer from 'Components/Footer';
 import { Link } from 'react-router-dom'; 
 import { axiosWithAuth } from 'Auth/axiosWithAuth';
 import {StoreContext} from '../contextAPI/Context.js'; 
@@ -48,6 +50,7 @@ const { userInfo } = useContext(StoreContext);
 
 return (
   <EditStyled>
+    <Nav /> 
     <Link to='/MyEntries'> 
     <button > Go Back to My Entries </button>
     </Link>
@@ -63,6 +66,7 @@ return (
       </label>
 
     </form>
+    <Footer /> 
   </EditStyled>
   )
 } 
