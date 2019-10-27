@@ -9,10 +9,10 @@ import twitter from '../Images/twitter.png';
 function Footer() {
   return (
     <div>
-    <StyledImg img src={aboutusframed} alt='About Us' />
-    <StyledImg img src={instagram} alt='Instagram Icon' />
-    <StyledImg img src={facebookicon} alt='Facebook Icon' />
-    <StyledImg img src={twitter} alt='Twitter Icon' />
+    <a href='https://bw-one-line-per-day.github.io/UI/about/'><StyledImg src={aboutusframed} alt='About Us' /> </a>
+    <StyledImg src={instagram} alt='Instagram Icon' />
+    <StyledImg src={facebookicon} alt='Facebook Icon' />
+    <StyledImg src={twitter} alt='Twitter Icon' />
     </div>
   )
 }
