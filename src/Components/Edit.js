@@ -1,23 +1,78 @@
-import React from 'react'; 
+import React, { useEffect, useState, useContext } from 'react'; 
+import styled from 'styled-components'; 
 import { Link } from 'react-router-dom'; 
+import { axiosWithAuth } from 'Auth/axiosWithAuth';
+import {StoreContext} from '../contextAPI/Context.js'; 
 
 const Edit = (props) => {
-  // useEffect (
+
+const [entry, setEntry] = useState({}); 
+const id = parseInt(props.match.params.id,10); 
+const { userInfo } = useContext(StoreContext);
+
+  useEffect(function(){
+    axiosWithAuth().get(`users/${userInfo.id}/posts`)
+      .then(response => {
+        console.log(response, "entry to be changed");
+        setEntry(response.data.find((event) => event.id === id ))
+      }) 
+      .catch(error => {
+        console.log(error, "can't edit entry"); 
+      })
+    }, []); 
+  console.log(entry, "entry to be edited");
   
-  // )
+
+  const handleTitleChange = event =>{
+    setEntry({ ...entry, title: event.target.value });
+  }
+
+  const handleContentsChange = event =>{
+    setEntry({...entry, contents: event.target.value});
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(entry.title,"editing title");
+    console.log(entry.contents, "editing contents");
+    axiosWithAuth().put(`users/posts/${id}`, {title: entry.title, contents: entry.contents})
+    .then(response => {
+      console.log(response, "response of editing a entry"); 
+      setEntry(props.history.push("/MyEntries")); 
+    })
+    .catch(error => {
+      console.log(error, "editing fail");
+    })
+    console.log(entry, "entry after editing"); 
+  };
+
 return (
-  <div>
+  <EditStyled>
     <Link to='/MyEntries'> 
-    <button > here</button>
+    <button > Go Back to My Entries </button>
     </Link>
-    <form>
-      <input type='text' defaultValue='test'/>
-      <textarea rows='10' cols='50'> 
-      testing 
-      </textarea> 
+    <form onSubmit={event => handleSubmit(event)} >   
+        <input type='text' 
+        onChange={event => handleTitleChange(event)}
+        value={entry.title} />
+        <input type='textarea' rows='10' cols='50' 
+        onChange={event => handleContentsChange(event)}
+        value={entry.contents} /> 
+      <label>
+        <button> Submit! </button>
+      </label>
+
     </form>
-  </div>
-)
+  </EditStyled>
+  )
 } 
+
+
+const EditStyled = styled.div`
+  background: #fee5e2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
 export default Edit; 
