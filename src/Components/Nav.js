@@ -1,4 +1,5 @@
 import React from "react"; 
+import { Link } from 'react-router-dom'; 
 import styled from 'styled-components'; 
 import Logo from '../Images/Logo.png'; 
 import SignOutButton from '../Images/SignOutButton.png'; 
@@ -16,7 +17,7 @@ function Nav() {
       <LogoStyled img src={Logo} alt='note pad with pen'/> 
       <LogoTitle> One Line a Day </LogoTitle> 
       </LeftDiv>
-      <Button onClick={signOut}> <ImgStyled img src={SignOutButton} alt={'Click here to sign out'} /> </Button>
+      <Link to={'/login'}><SignOutStyled  src={SignOutButton} alt={'Click here to sign out'} /> </Link> 
     </StyledNav>
   )
 }
@@ -32,7 +33,7 @@ margin: 1rem;
 background: #FEE5E2;
 `
 
-const ImgStyled = styled.img`
+const SignOutStyled = styled.img`
 height: 50px; 
 `
 const Button = styled.button`
@@ -47,6 +48,7 @@ const LogoStyled = styled.img`
 height: 75px; 
 padding: .5rem; 
 `
+
 const LeftDiv = styled.div`
 display: flex; 
 margin: auto;
