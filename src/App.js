@@ -21,7 +21,7 @@ import Edit from './Components/Edit';
 function App() {
   return (
     <Router>
-      <StyledApp>
+      {/* <StyledApp> */}
       <div className="App">
 
         <Switch>
@@ -36,7 +36,7 @@ function App() {
 
       </div>
 
-      </StyledApp>
+      {/* </StyledApp> */}
     </Router>
   );
 }
@@ -44,6 +44,7 @@ function App() {
 
 const StyledApp = styled.div`
 background: #fee5e2;
+
 `;
 
 export default App;

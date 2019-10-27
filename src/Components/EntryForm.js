@@ -7,7 +7,6 @@ import { Formik, Form, Field } from 'formik';
 import styled from "styled-components"; 
 import Nav from './Nav.js'; 
 import Footer from './Footer.js'; 
-import SaveEntryButton from '../Images/';
 
 import {StoreContext} from 'contextAPI/Context.js';
 
@@ -64,7 +63,7 @@ function EntryForm(props) {
 
               <StyledEntryContents className = 'entryContents' placeholder="ADD YOUR TEXT" name='contents' type='text' value= {entryData.contents} onChange={onInputChange} />
 
-              <StyledEntryButton type='submit' onSubmit={handleSubmit}> <SaveEntryButton img src={SaveEntryButton} alt={'Click here to sign out'} /> </StyledEntryButton>
+              <button type='submit' onSubmit={handleSubmit}> <img src='../Images/saveEntryButton.png' alt={'Click here to sign out'} /> </button>
             </StyledForm>
           )}
           />
@@ -79,7 +78,7 @@ const StyledPage = styled.div`
   background: #fee5e2;
   height: 100vw;
   display: block;
-  width: 90%;
+  width: 99%;
   margin: 0 auto;
   
 `;
@@ -119,23 +118,23 @@ const StyledEntryContents = styled.input`
 
 
 
-const SaveEntryImg = styled.img`
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  margin: 2em;
-  border: none;
-  background: none;
-`;
+// const SaveEntryImg = styled.img`
+//   width: 90%;
+//   margin-right: auto;
+//   margin-left: auto;
+//   margin: 2em;
+//   border: none;
+//   background: none;
+// `;
 
-const StyledEntryButton = styled.button`
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  margin: 2em;
-  border: none;
-  background: none;
-`;
+// const StyledEntryButton = styled.button`
+//   width: 90%;
+//   margin-right: auto;
+//   margin-left: auto;
+//   margin: 2em;
+//   border: none;
+//   background: none;
+// `;
 
 
 

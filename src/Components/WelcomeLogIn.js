@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import Nav from './Nav.js'; 
 import { StoreContext } from '../contextAPI/Context.js';
 
 import styled from 'styled-components';
@@ -46,6 +46,7 @@ export default function WelcomeLogIn(props) {
       <Header>
         <NoteBookLogo src={notebookIcon} alt="notebook-icon" className="logo" />
         <OneLineADayH1>ONE LINE A DAY</OneLineADayH1>
+
       </Header>
       <DivWrapper>
         <ImageOfGirl
@@ -87,8 +88,8 @@ export default function WelcomeLogIn(props) {
 
 // styled components
 const DivContainerWrapper = styled.div`
-  width: 1440px;
-  height: 1016px;
+  width: 98%;
+  height: 100vw;
   background-color: #fef3f4;
 `;
 
@@ -129,6 +130,7 @@ const H2WelcomeBack = styled.h2`
 
 const InputsWrapper = styled.input`
   font-size: 1.5rem;
+  display: block;
   width: 400px;
   height: 60px;
   border-radius: 12px;
