@@ -56,27 +56,25 @@ function EntryArchive(props) {
   // };
 
   return (
-    <StyledPage>
-      
+    <StyledPage> 
       <Nav />
-
       <Link to='/NewEntry'> <img src={AddButton} alt={'Add New Entry'} /></Link>
-      {/* <Button> <img src={AddButton} alt={'Add New Entry'} /></Button> */}
-      {/* <Link to='/'>Sign In</Link> */}
-
-
+      <AllEntries>
       {entry.map(({id, title, contents}) => { 
         return (
-      <div key={id}>
-        <p>{title}</p>
+      
+      <EachEntry key={id}>
+        <h3>{title}</h3>
         <p>{contents}</p>
-      {/* <EntryForm addEntryDataFN={addEntryData} /> */}
+        <div>
       <DeleteIcon src={TrashCan} alt={'delete'} onClick={() => axiosWithAuth().delete(`users/posts/${id}`).then(res => setEntry(entry.filter(event => event.id !== id)))} />
       <Link to={`/edit/${id}`}><EditIcon src={Edit} alt={'Edit Entry'} /> 
       </Link>
-      </div>
+      </div> 
+      </EachEntry>
         )
       })}
+      </AllEntries>
       <Footer />
     </StyledPage>
   );
@@ -88,19 +86,38 @@ const StyledPage = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Button = styled.button`
-  display: flex;
-  flex-direction: column;
-  margin: 2rem;
-  border: none;
-  background: none;
-  height: 50px;
-`;
+
 const DeleteIcon = styled.img`
-  height: 50px;
+  height: 35px;
+  padding-right: .25rem;
+  padding-left: .25rem;
 `;
 
 const EditIcon = styled.img`
-  height: 50px;
+  height: 35px;
+  padding-right: .25rem;
+  padding-left: .25rem;
 `;
+
+const AllEntries = styled.div`
+display: flex;
+flex-direction: row;
+padding: .5rem;
+width: 90%;
+flex-flow: wrap;
+justify-content: space-evenly;
+margin: 1rem auto;
+`
+
+const EachEntry = styled.div`
+display: flex;
+flex-direction: column;
+padding: .25rem;
+margin: .10rem auto;
+border: 1px solid darkorange;
+border-radius: 15px;
+text-align: center;
+margin-bottom: inherit; 
+background-color: #fef3f4
+`
 export default EntryArchive;

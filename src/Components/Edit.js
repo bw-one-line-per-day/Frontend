@@ -1,8 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'; 
 import styled from 'styled-components'; 
+import Nav from 'Components/Nav'; 
+import Footer from 'Components/Footer';
 import { Link } from 'react-router-dom'; 
 import { axiosWithAuth } from 'Auth/axiosWithAuth';
 import {StoreContext} from '../contextAPI/Context.js'; 
+
+import MyEntriesButton from '../Images/MyEntriesButton.png';
 
 const Edit = (props) => {
 
@@ -47,32 +51,91 @@ const { userInfo } = useContext(StoreContext);
   };
 
 return (
-  <EditStyled>
-    <Link to='/MyEntries'> 
-    <button > Go Back to My Entries </button>
-    </Link>
+  <PageStyled>
+    <Nav /> 
+    <div>
+    <Button alt={'Click to view all entries'}> <Link to='/MyEntries'>
+        <img src={MyEntriesButton} alt={'Click to view all entries'} />
+        </Link>
+        </Button>
+    
+    </div>
+    <StyledForm>
     <form onSubmit={event => handleSubmit(event)} >   
-        <input type='text' 
+        <StyledInput type='text' 
         onChange={event => handleTitleChange(event)}
         value={entry.title} />
-        <input type='textarea' rows='10' cols='50' 
+        <LargeInput type='textarea' 
         onChange={event => handleContentsChange(event)}
         value={entry.contents} /> 
       <label>
-        <button> Submit! </button>
+        <SubmitButton> Submit! </SubmitButton>
       </label>
 
     </form>
-  </EditStyled>
+    </StyledForm>
+    <Footer /> 
+  </PageStyled>
   )
 } 
 
 
-const EditStyled = styled.div`
+const PageStyled = styled.div`
   background: #fee5e2;
   height: 100%;
   display: flex;
   flex-direction: column;
-`;
+`
+
+const Button = styled.button`
+display: flex;
+flex-direction: column;
+border: none;
+background: none;
+height: 15%;
+padding: .50rem;
+`
+const StyledForm = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 5rem;
+margin: 0 auto;
+`
+
+const StyledInput = styled.input`
+display: flex;
+width: 250px;
+height: 50px;
+text-align: center;
+border-radius: 20px;
+font-size: medium; 
+margin: 1rem auto;
+background-color: #fef3f4
+`
+const LargeInput = styled.input` 
+display: flex;
+height: 250px; 
+width: 250px; 
+text-align: center;
+border-radius: 20px; 
+font-size: medium; 
+background-color: #fef3f4
+`
+
+const SubmitButton = styled.button`
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
+margin: 1rem auto;
+height: 50px;
+width: 50%;
+font-size: medium;
+border-radius: 15px;
+border: darkorange;
+background: orange;
+color: white;
+`
 
 export default Edit; 
