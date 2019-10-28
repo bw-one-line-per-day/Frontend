@@ -4,9 +4,7 @@ import {BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components'
 import SignUpImage from '../Assets/SignUp.png'
 import Button from '../Assets/SignUpButton.png'
-//import InactiveButton from '../Assets/SignUpInactiveButton'
 import LogoImg from '../Images/Logo.png'
-import WelcomeLogIn from '../Components/WelcomeLogIn.js';
 import { StoreContext } from '../contextAPI/Context.js';
 
 const SignUp = (props) => {
