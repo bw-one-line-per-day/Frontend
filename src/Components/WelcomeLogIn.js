@@ -30,7 +30,9 @@ export default function WelcomeLogIn(props) {
       .then(res => {
         console.log(res.data);
         setUserInfo(res.data);
-        setTimeout(() => props.history.push('/Home'), 1000);
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('id', res.data.user.id);
+        props.history.push('/Home')
       })
       .catch(err => {
         if (err.response) {
