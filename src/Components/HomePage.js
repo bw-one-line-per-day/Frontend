@@ -28,8 +28,8 @@ function HomePage(props) {
         </Button>
         </ButtonArea>
         <QuoteDiv>
-        <h2><img src={Quotes} alt={'quotes'} />Change your thoughts and you change your world. <img src={Quotes} alt={'quotes'} /></h2> 
-        <h4> - Norman Vincent Peale </h4>
+        <h2><QuoteImg src={Quotes} alt={'quotes'} />Change your thoughts and you change your world. <QuoteImg src={Quotes} alt={'quotes'} /></h2> 
+        <Author> - Norman Vincent Peale </Author>
         </QuoteDiv>
       <GirlDiv>
       <Girl img src={HomePageGirl} alt={'girl'}/>
@@ -85,4 +85,12 @@ width: 75%;
 font-size: large; 
 `
 
+const Author = styled.h3`
+display: flex;
+justify-content: center;
+margin: 0 auto;
+`
+const QuoteImg = styled.img`
+height: 2rem; 
+`
 export default HomePage; 
