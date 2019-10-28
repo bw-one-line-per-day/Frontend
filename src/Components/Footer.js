@@ -8,17 +8,24 @@ import twitter from '../Images/twitter.png';
 
 function Footer() {
   return (
-    <div>
+    <StyledFooter>
     <a href='https://bw-one-line-per-day.github.io/UI/about/'><StyledImg src={aboutusframed} alt='About Us' /> </a>
     <StyledImg src={instagram} alt='Instagram Icon' />
     <StyledImg src={facebookicon} alt='Facebook Icon' />
     <StyledImg src={twitter} alt='Twitter Icon' />
-    </div>
+    </StyledFooter>
   )
 }
 
 
 const StyledImg = styled.img`
 padding: 3rem; 
+`
+
+const StyledFooter = styled.div`
+dispplay: flex;
+flex-direction: row; 
+justtify-content: center;
+align-items: center; 
 `
 export default Footer; 
