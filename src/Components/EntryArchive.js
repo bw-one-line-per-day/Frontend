@@ -6,16 +6,16 @@ import styled from "styled-components";
 import Footer from './Footer.js'; 
 import {StoreContext} from '../contextAPI/Context.js'; 
 import Nav from './Nav.js'; 
-import EntryForm from './EntryForm.js'; 
 import  TrashCan  from '../Images/trashcan.svg';
 import  Edit  from '../Images/editwithpen.svg';import AddButton from '../Images/AddButton.png';  
 import { axiosWithAuth } from "../Auth/axiosWithAuth.js";
 
 function EntryArchive(props) { 
+  const id = localStorage.getItem('id')
 
   const { userInfo } = useContext(StoreContext);
 
-  const [entry, setEntry] = useState([userInfo]);
+  const [entry, setEntry] = useState([]);
   //   {
   //     id: 1,
   //     title: 'A beatiful Fall Day',
@@ -35,8 +35,8 @@ function EntryArchive(props) {
   //   }
   // ]);
 
-  useEffect(function(){
-  axiosWithAuth().get(`users/${userInfo.id}/posts`)
+  useEffect(() => {
+  axiosWithAuth().get(`users/${id}/posts`)
     .then(response => {
       console.log(response);
       setEntry(response.data)
@@ -44,7 +44,7 @@ function EntryArchive(props) {
     .catch(error => {
       console.log(error); 
     })
-  }, []);  
+  }, [props.update]);  
 
   // const addEntryData = post => {
   //   const NewPost = {

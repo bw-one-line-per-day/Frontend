@@ -9,10 +9,11 @@ import Nav from './Nav.js';
 import Footer from './Footer.js'; 
 import SaveEntryButton from '../Images/SaveEntryButton.png';
 
-import {StoreContext} from 'contextAPI/Context.js';
+import {StoreContext} from '../contextAPI/Context.js';
 
     
 function EntryForm(props) {
+  const id = localStorage.getItem('id')
   console.log(props);
   const { userInfo } = useContext(StoreContext);
   //console.log(userInfo);
@@ -24,13 +25,13 @@ function EntryForm(props) {
   });
 
   const handleSubmit = (props, tools) => {
-    axiosWithAuth().post (`users/${userInfo.id}/posts`, entryData)
+    axiosWithAuth().post(`users/${id}/posts`, entryData)
       .then(response => {
         console.log(response);
       })
 
       .then(()=> {
-        props.history.push('/MyEntries');
+       props.history.push('/MyEntries');
       })
       
       .catch( (error) =>

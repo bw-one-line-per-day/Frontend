@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { axiosWithAuth } from './axiosWithAuth'
 import {BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components'
@@ -7,8 +7,10 @@ import Button from '../Assets/SignUpButton.png'
 //import InactiveButton from '../Assets/SignUpInactiveButton'
 import LogoImg from '../Images/Logo.png'
 import WelcomeLogIn from '../Components/WelcomeLogIn.js';
+import { StoreContext } from '../contextAPI/Context.js';
 
 const SignUp = (props) => {
+  const { userInfo, setUserInfo } = useContext(StoreContext);
   const [credentials, setCredentials] = useState({
     username: '',
     password: ''
@@ -27,7 +29,9 @@ const SignUp = (props) => {
       .post('/auth/register', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.token)
+        localStorage.setItem('id', res.data.user.id);
         props.history.push('/home')
+        setUserInfo(res.data);
         console.log(res.data)
       })
       .catch(err => console.log(err))}
