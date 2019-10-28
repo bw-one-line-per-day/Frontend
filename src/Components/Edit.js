@@ -111,6 +111,7 @@ text-align: center;
 border-radius: 20px;
 font-size: medium; 
 margin: 1rem auto;
+background-color: #fef3f4
 `
 const LargeInput = styled.input` 
 display: flex;
@@ -119,6 +120,7 @@ width: 250px;
 text-align: center;
 border-radius: 20px; 
 font-size: medium; 
+background-color: #fef3f4
 `
 
 const SubmitButton = styled.button`

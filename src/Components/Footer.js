@@ -23,9 +23,10 @@ padding: 3rem;
 `
 
 const StyledFooter = styled.div`
-dispplay: flex;
+display: flex;
 flex-direction: row; 
 justtify-content: center;
 align-items: center; 
+
 `
 export default Footer; 

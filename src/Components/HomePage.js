@@ -16,9 +16,7 @@ function HomePage(props) {
   return (
     <StyledPage>
     <Nav />
-    <LeftDiv>
-    <ButtonArea>
-
+      <ButtonArea>
       <Button><Link to='/NewEntry'>
         <img src={StartWritingButton} alt={'Click for new entry'} />
         </Link>
@@ -28,13 +26,11 @@ function HomePage(props) {
         <img src={MyEntriesButton} alt={'Click to view all entries'} />
         </Link>
         </Button>
+        </ButtonArea>
         <QuoteDiv>
         <h2><img src={Quotes} alt={'quotes'} />Change your thoughts and you change your world. <img src={Quotes} alt={'quotes'} /></h2> 
         <h4> - Norman Vincent Peale </h4>
         </QuoteDiv>
-        </ButtonArea>
-        </LeftDiv>
-      
       <GirlDiv>
       <Girl img src={HomePageGirl} alt={'girl'}/>
       </GirlDiv>
@@ -73,22 +69,20 @@ margin: 0 auto;
 `
 
 const ButtonArea = styled.div`
-display: flex; 
-flex-direction: row; 
-padding: .25rem; 
-width: 65%; 
+display: flex;
+margin: .25rem auto;
+justify-content: center;
+padding: 3rem;
 `
 
-const QuoteDiv = styled.div`
-margin: 0 auto; 
-display: flex; 
-flex-direction: column; 
-width: 65%; 
+const QuoteDiv = styled.div` 
+margin: .25rem auto;
+display: flex;
+flex-flow: column;
+justify-content: center;
+padding-left: 3rem;
+width: 75%; 
+font-size: large; 
 `
-const LeftDiv = styled.div`
-display: flex; 
-flex-direction: column; 
-padding: 2rem;
-width: 65%; 
-`
+
 export default HomePage; 
