@@ -7,6 +7,7 @@ import { Formik, Form, Field } from 'formik';
 import styled from "styled-components"; 
 import Nav from './Nav.js'; 
 import Footer from './Footer.js'; 
+import SaveEntryButton from '../Images/SaveEntryButton.png';
 
 import {StoreContext} from 'contextAPI/Context.js';
 
@@ -27,16 +28,18 @@ function EntryForm(props) {
   });
 
   const handleSubmit = (props, tools) => {
+
     axiosWithAuth().post (`users/${userInfo.id}/posts`, entryData)
       .then(response => {
         console.log(response);
+        // return;
       })
 
-      .then(()=> {
-        props.history.push('/MyEntries');
-      })
+      // .then(response => {
+      //   props.history.push('/MyEntries');
+      // })
       
-      .catch( (error) =>
+      .catch(error =>
         console.log(error)
         
       )}
@@ -46,7 +49,7 @@ function EntryForm(props) {
       ...entryData, 
       [event.target.name]: event.target.value,
     })
-    //console.log(entryData);
+    console.log(entryData);
   };
 
   return (
@@ -63,7 +66,7 @@ function EntryForm(props) {
 
               <StyledEntryContents className = 'entryContents' placeholder="ADD YOUR TEXT" name='contents' type='text' value= {entryData.contents} onChange={onInputChange} />
 
-              <button type='submit' onSubmit={handleSubmit}> <img src='../Images/saveEntryButton.png' alt={'Click here to sign out'} /> </button>
+              <StyledEntryButton type='submit' onSubmit={handleSubmit}> <SaveEntryImg src={ SaveEntryButton } alt={'Click here to sign out'} /> </StyledEntryButton>
             </StyledForm>
           )}
           />
@@ -118,23 +121,23 @@ const StyledEntryContents = styled.input`
 
 
 
-// const SaveEntryImg = styled.img`
-//   width: 90%;
-//   margin-right: auto;
-//   margin-left: auto;
-//   margin: 2em;
-//   border: none;
-//   background: none;
-// `;
+const SaveEntryImg = styled.img`
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin: 2em;
+  border: none;
+  background: none;
+`;
 
-// const StyledEntryButton = styled.button`
-//   width: 90%;
-//   margin-right: auto;
-//   margin-left: auto;
-//   margin: 2em;
-//   border: none;
-//   background: none;
-// `;
+const StyledEntryButton = styled.button`
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  margin: 2em;
+  border: none;
+  background: none;
+`;
 
 
 
